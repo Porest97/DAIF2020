@@ -23,6 +23,26 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult Arenas()
+        {
+            return View();
+        }
+
+        public IActionResult Clubs()
+        {
+            return View();
+        }
+
+        public IActionResult Districts()
+        {
+            return View();
+        }
+
+        public IActionResult People()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
