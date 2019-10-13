@@ -11,7 +11,7 @@ namespace DAIF2020.Models.DataModels
         [Display(Name = "#")]
         public string ArenaNumber { get; set; }
 
-        [Display(Name = "Club")]
+        [Display(Name = "Arena")]
         public string ArenaName { get; set; }
 
         [Display(Name = "Streetaddress")]

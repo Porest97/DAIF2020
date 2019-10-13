@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers
 {
@@ -23,8 +24,22 @@ namespace DAIF2020.Controllers
         // GET: Arenas
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Arena.Include(a => a.ArenaStatus).Include(a => a.District);
+            var applicationDbContext = _context.Arena
+                .Include(a => a.ArenaStatus)
+                .Include(a => a.District);
             return View(await applicationDbContext.ToListAsync());
+        }
+        public IActionResult ListArenas()
+        {
+
+
+            var arenasViewModel = new ArenasViewModel()
+            {
+                Arenas = _context.Arena
+                       .Include(a => a.District)                       
+                       .Include(a => a.ArenaStatus).ToList()
+            };
+            return View(arenasViewModel);
         }
 
         // GET: Arenas/Details/5
@@ -50,8 +65,8 @@ namespace DAIF2020.Controllers
         // GET: Arenas/Create
         public IActionResult Create()
         {
-            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "Id");
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id");
+            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName");
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName");
             return View();
         }
 
@@ -68,8 +83,8 @@ namespace DAIF2020.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "Id", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", arena.DistrictId);
+            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
             return View(arena);
         }
 
@@ -86,8 +101,8 @@ namespace DAIF2020.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "Id", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", arena.DistrictId);
+            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
             return View(arena);
         }
 
@@ -123,8 +138,8 @@ namespace DAIF2020.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "Id", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", arena.DistrictId);
+            ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
             return View(arena);
         }
 
