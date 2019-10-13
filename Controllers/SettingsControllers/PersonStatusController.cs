@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
 
-namespace DAIF2020.Controllers
+namespace DAIF2020.Controllers.SettingsControllers
 {
     public class PersonStatusController : Controller
     {

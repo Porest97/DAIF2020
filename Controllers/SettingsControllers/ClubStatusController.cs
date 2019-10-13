@@ -8,24 +8,24 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
 
-namespace DAIF2020.Controllers
+namespace DAIF2020.Controllers.SettingsControllers
 {
-    public class PersonTypesController : Controller
+    public class ClubStatusController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PersonTypesController(ApplicationDbContext context)
+        public ClubStatusController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: PersonTypes
+        // GET: ClubStatus
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PersonType.ToListAsync());
+            return View(await _context.ClubStatus.ToListAsync());
         }
 
-        // GET: PersonTypes/Details/5
+        // GET: ClubStatus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace DAIF2020.Controllers
                 return NotFound();
             }
 
-            var personType = await _context.PersonType
+            var clubStatus = await _context.ClubStatus
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (personType == null)
+            if (clubStatus == null)
             {
                 return NotFound();
             }
 
-            return View(personType);
+            return View(clubStatus);
         }
 
-        // GET: PersonTypes/Create
+        // GET: ClubStatus/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: PersonTypes/Create
+        // POST: ClubStatus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PersonTypeName")] PersonType personType)
+        public async Task<IActionResult> Create([Bind("Id,ClubStatusName")] ClubStatus clubStatus)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(personType);
+                _context.Add(clubStatus);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(personType);
+            return View(clubStatus);
         }
 
-        // GET: PersonTypes/Edit/5
+        // GET: ClubStatus/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace DAIF2020.Controllers
                 return NotFound();
             }
 
-            var personType = await _context.PersonType.FindAsync(id);
-            if (personType == null)
+            var clubStatus = await _context.ClubStatus.FindAsync(id);
+            if (clubStatus == null)
             {
                 return NotFound();
             }
-            return View(personType);
+            return View(clubStatus);
         }
 
-        // POST: PersonTypes/Edit/5
+        // POST: ClubStatus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PersonTypeName")] PersonType personType)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClubStatusName")] ClubStatus clubStatus)
         {
-            if (id != personType.Id)
+            if (id != clubStatus.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace DAIF2020.Controllers
             {
                 try
                 {
-                    _context.Update(personType);
+                    _context.Update(clubStatus);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonTypeExists(personType.Id))
+                    if (!ClubStatusExists(clubStatus.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace DAIF2020.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(personType);
+            return View(clubStatus);
         }
 
-        // GET: PersonTypes/Delete/5
+        // GET: ClubStatus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace DAIF2020.Controllers
                 return NotFound();
             }
 
-            var personType = await _context.PersonType
+            var clubStatus = await _context.ClubStatus
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (personType == null)
+            if (clubStatus == null)
             {
                 return NotFound();
             }
 
-            return View(personType);
+            return View(clubStatus);
         }
 
-        // POST: PersonTypes/Delete/5
+        // POST: ClubStatus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var personType = await _context.PersonType.FindAsync(id);
-            _context.PersonType.Remove(personType);
+            var clubStatus = await _context.ClubStatus.FindAsync(id);
+            _context.ClubStatus.Remove(clubStatus);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonTypeExists(int id)
+        private bool ClubStatusExists(int id)
         {
-            return _context.PersonType.Any(e => e.Id == id);
+            return _context.ClubStatus.Any(e => e.Id == id);
         }
     }
 }
