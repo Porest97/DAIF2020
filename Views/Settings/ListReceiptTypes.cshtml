@@ -1,0 +1,36 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListReceiptTypes";
+}
+
+<h1>ListReceiptTypes</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="ReceiptTypes" asp-action="Create">Create new type</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptTypes[0].ReceiptTypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ReceiptTypes.OrderBy(r => r.ReceiptTypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiptTypeName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="ReceiptType" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="ReceiptType" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

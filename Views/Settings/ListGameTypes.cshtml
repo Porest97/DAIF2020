@@ -1,0 +1,36 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListGameTypes";
+}
+
+<h1>Game Types</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="GameTypes" asp-action="Create">Create new type</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GameTypes[0].GameTypeName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GameTypes.OrderBy(g => g.GameTypeName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameTypeName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="GameTypes" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="GameTypes" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

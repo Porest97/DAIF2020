@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.ClubStatus.ToListAsync());
+        }
+
+        public IActionResult ListClubStatuses()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                ClubStatuses = _context.ClubStatus.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: ClubStatus/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(clubStatus);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListClubStatuses));
             }
             return View(clubStatus);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListClubStatuses));
             }
             return View(clubStatus);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var clubStatus = await _context.ClubStatus.FindAsync(id);
             _context.ClubStatus.Remove(clubStatus);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListClubStatuses));
         }
 
         private bool ClubStatusExists(int id)

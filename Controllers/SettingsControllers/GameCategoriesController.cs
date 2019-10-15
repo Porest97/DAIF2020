@@ -7,35 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
-using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
-    public class ArenaStatusController : Controller
+    public class GameCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ArenaStatusController(ApplicationDbContext context)
+        public GameCategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IActionResult ListArenaStatuses()
-        {
-            var settingsViewModel = new SettingsViewModel()
-            {
-                ArenaStatuses = _context.ArenaStatus.ToList()
-            };
-            return View(settingsViewModel);
-        }
-
-        // GET: ArenaStatus
+        // GET: GameCategories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ArenaStatus.ToListAsync());
+            return View(await _context.GameCategory.ToListAsync());
         }
 
-        // GET: ArenaStatus/Details/5
+        // GET: GameCategories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,39 +33,39 @@ namespace DAIF2020.Controllers.SettingsControllers
                 return NotFound();
             }
 
-            var arenaStatus = await _context.ArenaStatus
+            var gameCategory = await _context.GameCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (arenaStatus == null)
+            if (gameCategory == null)
             {
                 return NotFound();
             }
 
-            return View(arenaStatus);
+            return View(gameCategory);
         }
 
-        // GET: ArenaStatus/Create
+        // GET: GameCategories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ArenaStatus/Create
+        // POST: GameCategories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ArenaStatusName")] ArenaStatus arenaStatus)
+        public async Task<IActionResult> Create([Bind("Id,GameCategoryName")] GameCategory gameCategory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(arenaStatus);
+                _context.Add(gameCategory);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ListArenaStatuses));
+                return RedirectToAction(nameof(Index));
             }
-            return View(arenaStatus);
+            return View(gameCategory);
         }
 
-        // GET: ArenaStatus/Edit/5
+        // GET: GameCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,22 +73,22 @@ namespace DAIF2020.Controllers.SettingsControllers
                 return NotFound();
             }
 
-            var arenaStatus = await _context.ArenaStatus.FindAsync(id);
-            if (arenaStatus == null)
+            var gameCategory = await _context.GameCategory.FindAsync(id);
+            if (gameCategory == null)
             {
                 return NotFound();
             }
-            return View(arenaStatus);
+            return View(gameCategory);
         }
 
-        // POST: ArenaStatus/Edit/5
+        // POST: GameCategories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ArenaStatusName")] ArenaStatus arenaStatus)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,GameCategoryName")] GameCategory gameCategory)
         {
-            if (id != arenaStatus.Id)
+            if (id != gameCategory.Id)
             {
                 return NotFound();
             }
@@ -107,12 +97,12 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 try
                 {
-                    _context.Update(arenaStatus);
+                    _context.Update(gameCategory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ArenaStatusExists(arenaStatus.Id))
+                    if (!GameCategoryExists(gameCategory.Id))
                     {
                         return NotFound();
                     }
@@ -121,12 +111,12 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ListArenaStatuses));
+                return RedirectToAction(nameof(Index));
             }
-            return View(arenaStatus);
+            return View(gameCategory);
         }
 
-        // GET: ArenaStatus/Delete/5
+        // GET: GameCategories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,30 +124,30 @@ namespace DAIF2020.Controllers.SettingsControllers
                 return NotFound();
             }
 
-            var arenaStatus = await _context.ArenaStatus
+            var gameCategory = await _context.GameCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (arenaStatus == null)
+            if (gameCategory == null)
             {
                 return NotFound();
             }
 
-            return View(arenaStatus);
+            return View(gameCategory);
         }
 
-        // POST: ArenaStatus/Delete/5
+        // POST: GameCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var arenaStatus = await _context.ArenaStatus.FindAsync(id);
-            _context.ArenaStatus.Remove(arenaStatus);
+            var gameCategory = await _context.GameCategory.FindAsync(id);
+            _context.GameCategory.Remove(gameCategory);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ListArenaStatuses));
+            return RedirectToAction(nameof(Index));
         }
 
-        private bool ArenaStatusExists(int id)
+        private bool GameCategoryExists(int id)
         {
-            return _context.ArenaStatus.Any(e => e.Id == id);
+            return _context.GameCategory.Any(e => e.Id == id);
         }
     }
 }

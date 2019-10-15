@@ -1,0 +1,37 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListArenaStatuses";
+}
+
+<h1>Arena Statuses</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="ArenaStatus" asp-action="Create">Create new status</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaStatuses[0].ArenaStatusName)
+            </th>           
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ArenaStatuses.OrderBy(a => a.ArenaStatusName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArenaStatusName)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="ArenaStatus" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="ArenaStatus" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="ArenaStatus" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

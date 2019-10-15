@@ -23,5 +23,11 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Models.SettingModels.PersonRole> PersonRole { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.PersonStatus> PersonStatus { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.PersonType> PersonType { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.GameType> GameType { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.GameStatus> GameStatus { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.GameCategory> GameCategory { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.ReceiptCategory> ReceiptCategory { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.ReceiptStatus> ReceiptStatus { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.ReceiptType> ReceiptType { get; set; }
     }
 }

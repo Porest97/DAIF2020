@@ -3,22 +3,68 @@
     ViewData["Title"] = "Settings";
 }
 
-<h1>Settings</h1>
+@*<h1>Settings</h1>
+
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="ArenaStatus" asp-action="Index">Add, Edit, List, Arena status</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="ClubStatus" asp-action="Index">Add, Edit, List, Club status</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="PersonRoles" asp-action="Index">Add, Edit, List, Person roles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="PersonStatus" asp-action="Index">Add, Edit, List, Person status</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="PersonTypes" asp-action="Index">Add, Edit, List, Person types</a>
+        </li>
+    </ul>*@
+
+<h1>Arena, Club and Person settings</h1>
 
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="ArenaStatus" asp-action="Index">Add, Edit, List, Arena status</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="ArenaStatus" asp-action="ListArenaStatuses">Arena statuses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="ClubStatus" asp-action="Index">Add, Edit, List, Club status</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="ClubStatus" asp-action="ListClubStatuses">Club statuses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="PersonRoles" asp-action="Index">Add, Edit, List, Person roles</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListPersonRoles">Person roles</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="PersonStatus" asp-action="Index">Add, Edit, List, Person status</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListPersonStatuses">Person statuses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="PersonTypes" asp-action="Index">Add, Edit, List, Person types</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListPersonTypes">Person types</a>
+    </li>
+</ul>
+
+<h1>Game Settings</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListGameCategories">Game categories</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListGameStatuses">Game statuses</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListGameTypes">Game types</a>
+    </li>
+</ul>
+
+<h1>Receipt Settings</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListReceiptCategories">Receipt categories</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListReceiptStatuses">Receipt statuses</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="ListReceiptTypes">Receipt types</a>
     </li>
 </ul>

@@ -1,4 +1,4 @@
-﻿@model DAIF2020.Models.SettingModels.ArenaStatus
+﻿@model DAIF2020.Models.SettingModels.GameType
 
 @{
     ViewData["Title"] = "Create";
@@ -6,16 +6,16 @@
 
 <h1>Create</h1>
 
-<h4>ArenaStatus</h4>
+<h4>GameType</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ArenaStatusName" class="control-label"></label>
-                <input asp-for="ArenaStatusName" class="form-control" />
-                <span asp-validation-for="ArenaStatusName" class="text-danger"></span>
+                <label asp-for="GameTypeName" class="control-label"></label>
+                <input asp-for="GameTypeName" class="form-control" />
+                <span asp-validation-for="GameTypeName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -25,6 +25,6 @@
 </div>
 
 <div>
-    <a class="btn btn-sm btn-success" asp-action="ListArenaStatuses">Back to arena statuses</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 

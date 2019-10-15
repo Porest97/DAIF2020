@@ -1,0 +1,36 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListPersonRoles";
+}
+
+<h1>ListPersonRoles</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="PersonRoles" asp-action="Create">Create new role</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonRoles[0].PersonRoleName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PersonRoles.OrderBy(p => p.PersonRoleName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonRoleName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="PersonRole" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="PersonRole" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
