@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.PersonType.ToListAsync());
+        }
+
+        public IActionResult ListPersonTypes()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                PersonTypes = _context.PersonType.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: PersonTypes/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(personType);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPersonTypes));
             }
             return View(personType);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPersonTypes));
             }
             return View(personType);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var personType = await _context.PersonType.FindAsync(id);
             _context.PersonType.Remove(personType);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListPersonTypes));
         }
 
         private bool PersonTypeExists(int id)

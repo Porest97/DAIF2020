@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.PersonRole.ToListAsync());
+        }
+
+        public IActionResult ListPersonRoles()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                PersonRoles = _context.PersonRole.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: PersonRoles/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(personRole);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPersonRoles));
             }
             return View(personRole);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPersonRoles));
             }
             return View(personRole);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var personRole = await _context.PersonRole.FindAsync(id);
             _context.PersonRole.Remove(personRole);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListPersonRoles));
         }
 
         private bool PersonRoleExists(int id)

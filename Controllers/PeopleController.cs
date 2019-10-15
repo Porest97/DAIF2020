@@ -32,6 +32,8 @@ namespace DAIF2020.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
         {

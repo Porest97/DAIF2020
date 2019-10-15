@@ -26,9 +26,9 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-sm btn-success" asp-controller="PersonRole" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-sm btn-success" asp-controller="PersonRole" asp-action="Details" asp-route-id="@item.Id">Details</a>
-
+                    <a class="btn btn-sm btn-success" asp-controller="PersonRoles" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="PersonRoles" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="PersonRoles" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }

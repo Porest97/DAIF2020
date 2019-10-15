@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.ReceiptType.ToListAsync());
+        }
+
+        public IActionResult ListReceiptTypes()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                ReceiptTypes = _context.ReceiptType.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: ReceiptTypes/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(receiptType);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListReceiptTypes));
             }
             return View(receiptType);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListReceiptTypes));
             }
             return View(receiptType);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var receiptType = await _context.ReceiptType.FindAsync(id);
             _context.ReceiptType.Remove(receiptType);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListReceiptTypes));
         }
 
         private bool ReceiptTypeExists(int id)

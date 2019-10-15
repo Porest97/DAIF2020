@@ -48,6 +48,16 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult Economics()
+        {
+            return View();
+        }
+
+        public IActionResult Games()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

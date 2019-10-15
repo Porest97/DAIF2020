@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.GameStatus.ToListAsync());
+        }
+
+        public IActionResult ListGameStatuses()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                GameStatuses = _context.GameStatus.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: GameStatus/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(gameStatus);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListGameStatuses));
             }
             return View(gameStatus);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListGameStatuses));
             }
             return View(gameStatus);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var gameStatus = await _context.GameStatus.FindAsync(id);
             _context.GameStatus.Remove(gameStatus);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListGameStatuses));
         }
 
         private bool GameStatusExists(int id)

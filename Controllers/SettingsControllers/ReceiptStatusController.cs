@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
@@ -23,6 +24,15 @@ namespace DAIF2020.Controllers.SettingsControllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.ReceiptStatus.ToListAsync());
+        }
+
+        public IActionResult ListReceiptStatuses()
+        {
+            var settingsViewModel = new SettingsViewModel()
+            {
+                ReceiptStatuses = _context.ReceiptStatus.ToList()
+            };
+            return View(settingsViewModel);
         }
 
         // GET: ReceiptStatus/Details/5
@@ -60,7 +70,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             {
                 _context.Add(receiptStatus);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListReceiptStatuses));
             }
             return View(receiptStatus);
         }
@@ -111,7 +121,7 @@ namespace DAIF2020.Controllers.SettingsControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListReceiptStatuses));
             }
             return View(receiptStatus);
         }
@@ -142,7 +152,7 @@ namespace DAIF2020.Controllers.SettingsControllers
             var receiptStatus = await _context.ReceiptStatus.FindAsync(id);
             _context.ReceiptStatus.Remove(receiptStatus);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListReceiptStatuses));
         }
 
         private bool ReceiptStatusExists(int id)
