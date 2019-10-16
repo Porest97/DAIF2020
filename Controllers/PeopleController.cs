@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers
 {
@@ -32,7 +33,20 @@ namespace DAIF2020.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-
+        public IActionResult ListPeople()
+        {
+            var peopleViewModel = new PeopleViewModel()
+            {
+                People = _context.Person
+                .Include(p => p.Club)
+                .Include(p => p.District)
+                .Include(p => p.PersonRole)
+                .Include(p => p.PersonStatus)
+                .Include(p => p.PersonType)
+                .ToList()
+            };
+            return View(peopleViewModel);
+        }
 
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -60,11 +74,11 @@ namespace DAIF2020.Controllers
         // GET: People/Create
         public IActionResult Create()
         {
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "Id");
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id");
-            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "Id");
-            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "Id");
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id");
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName");
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName");
+            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "PersonRoleName");
+            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "PersonStatusName");
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "PersonTypeName");
             return View();
         }
 
@@ -79,13 +93,13 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(person);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPeople));
             }
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "Id", person.ClubId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", person.DistrictId);
-            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "Id", person.PersonRoleId);
-            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "Id", person.PersonStatusId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", person.ClubId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", person.DistrictId);
+            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "PersonRoleName", person.PersonRoleId);
+            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "PersonStatusName", person.PersonStatusId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "PersonTypeName", person.PersonTypeId);
             return View(person);
         }
 
@@ -102,11 +116,11 @@ namespace DAIF2020.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "Id", person.ClubId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", person.DistrictId);
-            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "Id", person.PersonRoleId);
-            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "Id", person.PersonStatusId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", person.ClubId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", person.DistrictId);
+            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "PersonRoleName", person.PersonRoleId);
+            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "PersonStatusName", person.PersonStatusId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "PersonTypeName", person.PersonTypeId);
             return View(person);
         }
 
@@ -140,13 +154,13 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListPeople));
             }
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "Id", person.ClubId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", person.DistrictId);
-            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "Id", person.PersonRoleId);
-            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "Id", person.PersonStatusId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", person.ClubId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", person.DistrictId);
+            ViewData["PersonRoleId"] = new SelectList(_context.Set<PersonRole>(), "Id", "PersonRoleName", person.PersonRoleId);
+            ViewData["PersonStatusId"] = new SelectList(_context.Set<PersonStatus>(), "Id", "PersonStatusName", person.PersonStatusId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "PersonTypeName", person.PersonTypeId);
             return View(person);
         }
 
@@ -181,7 +195,7 @@ namespace DAIF2020.Controllers
             var person = await _context.Person.FindAsync(id);
             _context.Person.Remove(person);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListPeople));
         }
 
         private bool PersonExists(int id)
