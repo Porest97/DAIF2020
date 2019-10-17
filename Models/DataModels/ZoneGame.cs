@@ -112,13 +112,13 @@ namespace DAIF2020.Models.DataModels
         [Display(Name = "Arena")]
         [ForeignKey("ArenaId")]
         public Arena Arena { get; set; }
-        
+        [Display(Name = "Date & Time")]
         public DateTime ZoneGameDateTime { get; set; }
+        [Display(Name ="ID #")]
+        public string ZoneGameName { get; set; }
 
-        public DateTime ZoneGameName { get; set; }
-
-        [Display(Name = "Zonegame #")]
-        public string ZoneGameNumber { get { return string.Format("{0} {1} {2}", ZoneGameName, TSMNumberZone1, TSMNumberZone2); } }
-
+        [Display(Name = "TSM numbers")]
+        public string TSMNumbers { get { return string.Format("{0} {1}", TSMNumberZone1, TSMNumberZone2); } }
+        
     }
 }

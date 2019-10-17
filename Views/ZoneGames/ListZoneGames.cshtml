@@ -11,9 +11,11 @@
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameDateTime)</th>
-            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameNumber)</th>
-            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameName)</th>
-
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].TSMNumbers)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].UDZ1)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].UDZ2)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].GameStatus)</th>
             <th></th>
         </tr>
     </thead>
@@ -22,8 +24,11 @@
         {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.ZoneGameDateTime)</td>
-            <td>@Html.DisplayFor(modelItem => item.ZoneGameNumber)</td>
-            <td>@Html.DisplayFor(modelItem => item.ZoneGameName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Arena.ArenaName)</td>
+            <td>@Html.DisplayFor(modelItem => item.TSMNumbers)</td>
+            <td>@Html.DisplayFor(modelItem => item.UDZ1.FullName)</td>
+            <td>@Html.DisplayFor(modelItem => item.UDZ2.FullName)</td>
+            <td>@Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)</td>
             <td>
                 <a class="btn btn-sm btn-success" asp-controller="ZoneGames" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                 <a class="btn btn-sm btn-success" asp-controller="ZoneGames" asp-action="Details" asp-route-id="@item.Id">Details</a>

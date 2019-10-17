@@ -45,7 +45,7 @@ namespace DAIF2020.Controllers
             var zoneGamesViewModel = new ZoneGamesViewModel()
             {
                 ZoneGames = _context.ZoneGame
-                .Include(z => z.Arena)
+                .Include(z => z.Arena)                
                 .Include(z => z.AwayTeam1)
                 .Include(z => z.AwayTeam2)
                 .Include(z => z.GameCategory)
@@ -97,7 +97,7 @@ namespace DAIF2020.Controllers
         // GET: ZoneGames/Create
         public IActionResult Create()
         {
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "ArenaName");
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
             ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName");
             ViewData["ClubId3"] = new SelectList(_context.Club, "Id", "ClubName");
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName");
@@ -126,7 +126,7 @@ namespace DAIF2020.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(ListZoneGames));
             }
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
             ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId1);
             ViewData["ClubId3"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId3);
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", zoneGame.GameCategoryId);
@@ -155,7 +155,7 @@ namespace DAIF2020.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
             ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId1);
             ViewData["ClubId3"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId3);
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", zoneGame.GameCategoryId);
@@ -203,7 +203,7 @@ namespace DAIF2020.Controllers
                 }
                 return RedirectToAction(nameof(ListZoneGames));
             }
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", zoneGame.ArenaId);
             ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId1);
             ViewData["ClubId3"] = new SelectList(_context.Club, "Id", "ClubName", zoneGame.ClubId3);
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", zoneGame.GameCategoryId);
