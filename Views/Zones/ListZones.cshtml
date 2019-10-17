@@ -1,0 +1,36 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListZones";
+}
+
+<h1>Zones</h1>
+<a class="btn btn-sm btn-success" asp-controller="Zones" asp-action="Create">Create new Zone</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Locations">Back to Locations</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Zones[0].ZoneName)
+            </th>           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Zones.OrderBy(z => z.ZoneName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZoneName)
+                </td>               
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Zones" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Zones" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Zones" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

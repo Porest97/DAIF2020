@@ -1,0 +1,37 @@
+﻿@model DAIF2020.Models.ViewModels.ZoneGamesViewModel
+@{
+    ViewData["Title"] = "ListZoneGames";
+}
+
+<h1>Zone Games</h1>
+<a class="btn btn-sm btn-success" asp-controller="ZoneGames" asp-action="Create">Create new Game</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Games">Back to Games</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameDateTime)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameName)</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ZoneGames.OrderByDescending(g => g.ZoneGameDateTime))
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGameDateTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGameNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGameName)</td>
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="ZoneGames" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="ZoneGames" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-danger" asp-controller="ZoneGames" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@

@@ -4,14 +4,16 @@ using DAIF2020.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAIF2020.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191017113231_ZonesAdded")]
+    partial class ZonesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,95 +275,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasIndex("PersonTypeId");
 
                     b.ToTable("Person");
-                });
-
-            modelBuilder.Entity("DAIF2020.Models.DataModels.ZoneGame", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ArenaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClubId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClubId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClubId2")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ClubId3")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GameCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GameStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GameTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId2")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TSMNumberZone1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TSMNumberZone2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ZoneGameDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ZoneGameName")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ZoneId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ZoneId1")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ArenaId");
-
-                    b.HasIndex("ClubId");
-
-                    b.HasIndex("ClubId1");
-
-                    b.HasIndex("ClubId2");
-
-                    b.HasIndex("ClubId3");
-
-                    b.HasIndex("GameCategoryId");
-
-                    b.HasIndex("GameStatusId");
-
-                    b.HasIndex("GameTypeId");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("PersonId1");
-
-                    b.HasIndex("PersonId2");
-
-                    b.HasIndex("ZoneId");
-
-                    b.HasIndex("ZoneId1");
-
-                    b.ToTable("ZoneGame");
                 });
 
             modelBuilder.Entity("DAIF2020.Models.SettingModels.ArenaStatus", b =>
@@ -834,61 +747,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.SettingModels.PersonType", "PersonType")
                         .WithMany()
                         .HasForeignKey("PersonTypeId");
-                });
-
-            modelBuilder.Entity("DAIF2020.Models.DataModels.ZoneGame", b =>
-                {
-                    b.HasOne("DAIF2020.Models.DataModels.Arena", "Arena")
-                        .WithMany()
-                        .HasForeignKey("ArenaId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Club", "HomeTeam1")
-                        .WithMany()
-                        .HasForeignKey("ClubId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Club", "AwayTeam1")
-                        .WithMany()
-                        .HasForeignKey("ClubId1");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Club", "HomeTeam2")
-                        .WithMany()
-                        .HasForeignKey("ClubId2");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Club", "AwayTeam2")
-                        .WithMany()
-                        .HasForeignKey("ClubId3");
-
-                    b.HasOne("DAIF2020.Models.SettingModels.GameCategory", "GameCategory")
-                        .WithMany()
-                        .HasForeignKey("GameCategoryId");
-
-                    b.HasOne("DAIF2020.Models.SettingModels.GameStatus", "GameStatus")
-                        .WithMany()
-                        .HasForeignKey("GameStatusId");
-
-                    b.HasOne("DAIF2020.Models.SettingModels.GameType", "GameType")
-                        .WithMany()
-                        .HasForeignKey("GameTypeId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "UDZ1")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "UDZ2")
-                        .WithMany()
-                        .HasForeignKey("PersonId1");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "Supervisor")
-                        .WithMany()
-                        .HasForeignKey("PersonId2");
-
-                    b.HasOne("DAIF2020.Models.SettingModels.Zone", "Zone1")
-                        .WithMany()
-                        .HasForeignKey("ZoneId");
-
-                    b.HasOne("DAIF2020.Models.SettingModels.Zone", "Zone2")
-                        .WithMany()
-                        .HasForeignKey("ZoneId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,0 +1,131 @@
+﻿@model IEnumerable<DAIF2020.Models.DataModels.ZoneGame>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GameCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zone1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TSMNumberZone1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeam1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeam1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zone2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TSMNumberZone2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeam2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeam2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supervisor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGameDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGameName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameType.GameTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zone1.ZoneName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TSMNumberZone1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam1.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam1.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ1.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zone2.ZoneName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TSMNumberZone2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam2.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam2.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ2.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supervisor.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGameDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGameName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

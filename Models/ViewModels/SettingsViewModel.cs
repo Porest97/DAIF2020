@@ -29,5 +29,7 @@ namespace DAIF2020.Models.ViewModels
         public List<ReceiptStatus> ReceiptStatuses { get; internal set; }
 
         public List<ReceiptType> ReceiptTypes { get; internal set; }
+
+        public List<Zone> Zones { get; internal set; }
     }
 }

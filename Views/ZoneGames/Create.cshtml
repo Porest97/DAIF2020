@@ -1,0 +1,97 @@
+﻿@model DAIF2020.Models.DataModels.ZoneGame
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ZoneGame</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GameCategoryId" class="control-label"></label>
+                <select asp-for="GameCategoryId" class="form-control" asp-items="ViewBag.GameCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameStatusId" class="control-label"></label>
+                <select asp-for="GameStatusId" class="form-control" asp-items="ViewBag.GameStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameTypeId" class="control-label"></label>
+                <select asp-for="GameTypeId" class="form-control" asp-items="ViewBag.GameTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zone1" class="control-label"></label>
+                <select asp-for="ZoneId" class="form-control" asp-items="ViewBag.ZoneId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TSMNumberZone1" class="control-label"></label>
+                <input asp-for="TSMNumberZone1" class="form-control" />
+                <span asp-validation-for="TSMNumberZone1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeam1" class="control-label"></label>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeam1" class="control-label"></label>
+                <select asp-for="ClubId1" class="form-control" asp-items="ViewBag.ClubId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1" class="control-label"></label>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zone2" class="control-label"></label>
+                <select asp-for="ZoneId1" class="form-control" asp-items="ViewBag.ZoneId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TSMNumberZone2" class="control-label"></label>
+                <input asp-for="TSMNumberZone2" class="form-control" />
+                <span asp-validation-for="TSMNumberZone2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeam2" class="control-label"></label>
+                <select asp-for="ClubId2" class="form-control" asp-items="ViewBag.ClubId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeam2" class="control-label"></label>
+                <select asp-for="ClubId3" class="form-control" asp-items="ViewBag.ClubId3"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2" class="control-label"></label>
+                <select asp-for="PersonId1" class="form-control" asp-items="ViewBag.PersonId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supervisor" class="control-label"></label>
+                <select asp-for="PersonId2" class="form-control" asp-items="ViewBag.PersonId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Arena" class="control-label"></label>
+                <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameDateTime" class="control-label"></label>
+                <input asp-for="ZoneGameDateTime" class="form-control" />
+                <span asp-validation-for="ZoneGameDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameName" class="control-label"></label>
+                <input asp-for="ZoneGameName" class="form-control" />
+                <span asp-validation-for="ZoneGameName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
