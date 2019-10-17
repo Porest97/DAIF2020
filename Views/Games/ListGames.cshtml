@@ -1,0 +1,73 @@
+﻿@model DAIF2020.Models.ViewModels.GamesViewModel
+@{
+    ViewData["Title"] = "ListGames";
+}
+
+<h1>Games</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Create">Create new Game</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Games">Back to Games</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].GameDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].HomeTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].AwayTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].Result)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].GameStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].GameCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Games.OrderByDescending(g => g.GameDateTime))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Games" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@

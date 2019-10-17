@@ -29,5 +29,6 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Models.SettingModels.ReceiptCategory> ReceiptCategory { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.ReceiptStatus> ReceiptStatus { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.ReceiptType> ReceiptType { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.Game> Game { get; set; }
     }
 }
