@@ -81,10 +81,10 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(arena);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListArenas));
             }
             ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", arena.DistrictId);
             return View(arena);
         }
 
@@ -102,7 +102,7 @@ namespace DAIF2020.Controllers
                 return NotFound();
             }
             ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", arena.DistrictId);
             return View(arena);
         }
 
@@ -136,10 +136,10 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListArenas));
             }
             ViewData["ArenaStatusId"] = new SelectList(_context.Set<ArenaStatus>(), "Id", "ArenaStatusName", arena.ArenaStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DaistrictName", arena.DistrictId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", arena.DistrictId);
             return View(arena);
         }
 
@@ -171,7 +171,7 @@ namespace DAIF2020.Controllers
             var arena = await _context.Arena.FindAsync(id);
             _context.Arena.Remove(arena);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListArenas));
         }
 
         private bool ArenaExists(int id)

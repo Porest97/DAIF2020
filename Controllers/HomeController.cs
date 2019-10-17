@@ -23,6 +23,11 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult Locations()
+        {
+            return View();
+        }
+
         public IActionResult Arenas()
         {
             return View();

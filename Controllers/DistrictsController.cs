@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers
 {
@@ -23,6 +24,18 @@ namespace DAIF2020.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.District.ToListAsync());
+        }
+
+        // List Clubs
+        public IActionResult ListDistricts()
+        {
+
+
+            var districtsViewModel = new DistrictsViewModel()
+            {
+                Districts = _context.District.ToList()                       
+            };
+            return View(districtsViewModel);
         }
 
         // GET: Districts/Details/5
@@ -60,7 +73,7 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(district);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListDistricts));
             }
             return View(district);
         }
@@ -111,7 +124,7 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListDistricts));
             }
             return View(district);
         }
@@ -142,7 +155,7 @@ namespace DAIF2020.Controllers
             var district = await _context.District.FindAsync(id);
             _context.District.Remove(district);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListDistricts));
         }
 
         private bool DistrictExists(int id)

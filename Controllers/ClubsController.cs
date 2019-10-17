@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers
 {
@@ -28,6 +29,22 @@ namespace DAIF2020.Controllers
                 .Include(c => c.ClubStatus)
                 .Include(c => c.District);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        // List Clubs
+        public IActionResult ListClubs()
+        {
+
+
+            var clubsViewModel = new ClubsViewModel()
+            {
+                Clubs = _context.Club
+                       .Include(c => c.Arena)
+                       .Include(c => c.ClubStatus)
+                       .Include(c => c.District)
+                       .ToList()
+            };
+            return View(clubsViewModel);
         }
 
         // GET: Clubs/Details/5
@@ -54,9 +71,9 @@ namespace DAIF2020.Controllers
         // GET: Clubs/Create
         public IActionResult Create()
         {
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id");
-            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "Id");
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id");
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
+            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "ClubStatusName");
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName");
             return View();
         }
 
@@ -71,11 +88,11 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(club);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListClubs));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", club.ArenaId);
-            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "Id", club.ClubStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", club.DistrictId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", club.ArenaId);
+            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "ClubStatusName", club.ClubStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", club.DistrictId);
             return View(club);
         }
 
@@ -92,9 +109,9 @@ namespace DAIF2020.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", club.ArenaId);
-            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "Id", club.ClubStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", club.DistrictId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", club.ArenaId);
+            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "ClubStatusName", club.ClubStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", club.DistrictId);
             return View(club);
         }
 
@@ -128,11 +145,11 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListClubs));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", club.ArenaId);
-            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "Id", club.ClubStatusId);
-            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "Id", club.DistrictId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", club.ArenaId);
+            ViewData["ClubStatusId"] = new SelectList(_context.Set<ClubStatus>(), "Id", "ClubStatusName", club.ClubStatusId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", club.DistrictId);
             return View(club);
         }
 
@@ -165,7 +182,7 @@ namespace DAIF2020.Controllers
             var club = await _context.Club.FindAsync(id);
             _context.Club.Remove(club);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListClubs));
         }
 
         private bool ClubExists(int id)

@@ -13,23 +13,23 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="PersonRoleId" class="control-label"></label>
+                <label asp-for="PersonRole" class="control-label"></label>
                 <select asp-for="PersonRoleId" class ="form-control" asp-items="ViewBag.PersonRoleId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="PersonStatusId" class="control-label"></label>
+                <label asp-for="PersonStatus" class="control-label"></label>
                 <select asp-for="PersonStatusId" class ="form-control" asp-items="ViewBag.PersonStatusId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="PersonTypeId" class="control-label"></label>
+                <label asp-for="PersonType" class="control-label"></label>
                 <select asp-for="PersonTypeId" class ="form-control" asp-items="ViewBag.PersonTypeId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ClubId" class="control-label"></label>
+                <label asp-for="Club" class="control-label"></label>
                 <select asp-for="ClubId" class ="form-control" asp-items="ViewBag.ClubId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="DistrictId" class="control-label"></label>
+                <label asp-for="District" class="control-label"></label>
                 <select asp-for="DistrictId" class ="form-control" asp-items="ViewBag.DistrictId"></select>
             </div>
             <div class="form-group">

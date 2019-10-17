@@ -3,16 +3,10 @@
     ViewData["Title"] = "ListArenas";
 }
 
-<h1>Arena List</h1>
-@*
-    <div class="accordion">
-        <a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Create">Create Game !</a>
-        <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Lists">Back to Home Lists</a>
-        <a class="btn btn-sm btn-success" asp-controller="GameLists" asp-action="StartedGames">Go to Pool Games</a>
-        <a class="btn btn-sm btn-success" asp-controller="GameLists" asp-action="FinalGames">Go to Final Games</a>
-        <a class="btn btn-sm btn-success" asp-controller="GameLists" asp-action="ArchivedGames">Go to Archived Games</a>
-        <a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Index">Go to Games List</a>
-    </div>*@
+<h1>Arenas</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Arenas" asp-action="Create">Create new arena</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Locations">Back to Locations</a>
 
 <table class="table table-responsive-sm table-striped">
     <thead>
@@ -48,7 +42,7 @@
                 <td>
                     <a class="btn btn-sm btn-success" asp-controller="Arenas" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a class="btn btn-sm btn-success" asp-controller="Arenas" asp-action="Details" asp-route-id="@item.Id">Details</a>
-
+                    <a class="btn btn-sm btn-danger" asp-controller="Arenas" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }

@@ -1,0 +1,36 @@
+﻿@model DAIF2020.Models.ViewModels.DistrictsViewModel
+@{
+    ViewData["Title"] = "ListDistricts";
+}
+
+<h1>Districts</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Districts" asp-action="Create">Create new district</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Locations">Back to Locations</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Districts[0].DistrictName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Districts.OrderBy(p => p.DistrictName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistrictName)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Districts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Districts" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Districts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,6 +6,7 @@
 <h1>People</h1>
 
 <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Create">Create new person</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="People">Back to People</a>
 
 <table class="table table-responsive-sm table-striped">
     <thead>
@@ -35,31 +36,33 @@
     <tbody>
         @foreach (var item in Model.People.OrderBy(p => p.FullName))
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumbers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PersonType.PersonTypeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PersonRole.PersonRoleName)
-            </td>
-            <td>
-                <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                <a class="btn btn-sm btn-danger" asp-controller="People" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonType.PersonTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonRole.PersonRoleName)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="People" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
