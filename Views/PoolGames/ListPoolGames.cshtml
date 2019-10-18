@@ -1,0 +1,45 @@
+﻿@model DAIF2020.Models.ViewModels.PoolGamesViewModel
+@{
+    ViewData["Title"] = "ListPoolGames";
+}
+
+<h1>Pool Games</h1>
+<a class="btn btn-sm btn-success" asp-controller="PoolGames" asp-action="Create">Create new Game</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Games">Back to Games</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].PoolGameDateTime)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].HostingTeam)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].PoolGameName)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].ZoneGame1)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].ZoneGame2)</th>
+            <th>@Html.DisplayNameFor(model => model.PoolGames[0].ZoneGame3)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PoolGames.OrderBy(g => g.PoolGameDateTime))
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.PoolGameDateTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.Arena.ArenaName)</td>
+            <td>@Html.DisplayFor(modelItem => item.HostingTeam.ClubName)</td>
+            <td>@Html.DisplayFor(modelItem => item.PoolGameName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGame1.ZoneGameDateTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGame2.ZoneGameDateTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGame3.ZoneGameDateTime)</td>
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="PoolGames" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="PoolGames" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-danger" asp-controller="PoolGames" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
+

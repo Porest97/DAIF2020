@@ -4,14 +4,16 @@ using DAIF2020.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAIF2020.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191018173810_SeriesAndTeamStatusesAdded")]
+    partial class SeriesAndTeamStatusesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -370,9 +372,6 @@ namespace DAIF2020.Data.Migrations
                     b.Property<string>("TeamName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TeamRosterId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TeamStatusId")
                         .HasColumnType("int");
 
@@ -386,41 +385,9 @@ namespace DAIF2020.Data.Migrations
 
                     b.HasIndex("SeriesId");
 
-                    b.HasIndex("TeamRosterId");
-
                     b.HasIndex("TeamStatusId");
 
                     b.ToTable("Team");
-                });
-
-            modelBuilder.Entity("DAIF2020.Models.DataModels.TeamRoster", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId1")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId2")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TeamRosterName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("PersonId1");
-
-                    b.HasIndex("PersonId2");
-
-                    b.ToTable("TeamRoster");
                 });
 
             modelBuilder.Entity("DAIF2020.Models.DataModels.ZoneGame", b =>
@@ -1070,28 +1037,9 @@ namespace DAIF2020.Data.Migrations
                         .WithMany()
                         .HasForeignKey("SeriesId");
 
-                    b.HasOne("DAIF2020.Models.DataModels.TeamRoster", "TeamRoster")
-                        .WithMany()
-                        .HasForeignKey("TeamRosterId");
-
                     b.HasOne("DAIF2020.Models.SettingModels.TeamStatus", "TeamStatus")
                         .WithMany()
                         .HasForeignKey("TeamStatusId");
-                });
-
-            modelBuilder.Entity("DAIF2020.Models.DataModels.TeamRoster", b =>
-                {
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "GM")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "HeadCoach")
-                        .WithMany()
-                        .HasForeignKey("PersonId1");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "AssCoach")
-                        .WithMany()
-                        .HasForeignKey("PersonId2");
                 });
 
             modelBuilder.Entity("DAIF2020.Models.DataModels.ZoneGame", b =>

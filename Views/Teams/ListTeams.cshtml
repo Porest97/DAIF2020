@@ -1,0 +1,68 @@
+﻿@model DAIF2020.Models.ViewModels.TeamsViewModel
+@{
+    ViewData["Title"] = "ListTeams";
+}
+
+<h1>Teams</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Teams" asp-action="Create">Create new Team</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Associations">Back to Associations</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].Club.ClubName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].Club.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].Club.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teams[0].TeamStatus)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Teams.OrderBy(t => t.TeamName))
+        {
+            <tr>
+                <td>
+                   @Html.DisplayFor(modelItem => item.TeamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club.ClubName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club.Arena.ArenaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.District.DistrictName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamStatus.TeamStatusName)
+                </td>
+                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Teams" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Teams" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Teams" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

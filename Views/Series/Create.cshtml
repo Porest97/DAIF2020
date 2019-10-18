@@ -1,0 +1,42 @@
+﻿@model DAIF2020.Models.DataModels.Series
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Series</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SeriesName" class="control-label"></label>
+                <input asp-for="SeriesName" class="form-control" />
+                <span asp-validation-for="SeriesName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DistrictId" class="control-label"></label>
+                <select asp-for="DistrictId" class ="form-control" asp-items="ViewBag.DistrictId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeriesStatusId" class="control-label"></label>
+                <select asp-for="SeriesStatusId" class ="form-control" asp-items="ViewBag.SeriesStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,24 @@
+﻿@model DAIF2020.Models.SettingModels.TeamStatus
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Team Status</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamStatusName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamStatusName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListTeamStatuses">Back to Team Statuses</a>
+</div>

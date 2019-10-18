@@ -68,6 +68,11 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult Associations()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

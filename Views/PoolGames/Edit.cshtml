@@ -1,0 +1,61 @@
+﻿@model DAIF2020.Models.DataModels.PoolGame
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PoolGame</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PoolGameDateTime" class="control-label"></label>
+                <input asp-for="PoolGameDateTime" class="form-control" />
+                <span asp-validation-for="PoolGameDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoolGameName" class="control-label"></label>
+                <input asp-for="PoolGameName" class="form-control" />
+                <span asp-validation-for="PoolGameName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenaId" class="control-label"></label>
+                <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
+                <span asp-validation-for="ArenaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubId" class="control-label"></label>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
+                <span asp-validation-for="ClubId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId" class="control-label"></label>
+                <select asp-for="ZoneGameId" class="form-control" asp-items="ViewBag.ZoneGameId"></select>
+                <span asp-validation-for="ZoneGameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId1" class="control-label"></label>
+                <select asp-for="ZoneGameId1" class="form-control" asp-items="ViewBag.ZoneGameId1"></select>
+                <span asp-validation-for="ZoneGameId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId2" class="control-label"></label>
+                <select asp-for="ZoneGameId2" class="form-control" asp-items="ViewBag.ZoneGameId2"></select>
+                <span asp-validation-for="ZoneGameId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-action="ListPoolGames">Back to Pool Games</a>
+</div>
+

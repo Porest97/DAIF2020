@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.ZoneGames.OrderByDescending(g => g.ZoneGameDateTime))
+        @foreach (var item in Model.ZoneGames.OrderBy(g => g.ZoneGameDateTime))
         {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.ZoneGameDateTime)</td>

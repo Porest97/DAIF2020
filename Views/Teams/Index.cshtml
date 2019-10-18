@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DAIF2020.Models.DataModels.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRoster)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamRoster.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

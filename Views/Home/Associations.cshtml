@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Associations";
+}
+
+<h1>Associations</h1>
+
+<h2>Clubs</h2>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Clubs" asp-action="ListClubs">Clubs</a>
+    </li>
+</ul>
+
+<h2>Teams</h2>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="ListTeams">Teams</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="TeamRosters" asp-action="ListTeamRosters">Team Rosters</a>
+    </li>
+</ul>

@@ -1,0 +1,60 @@
+﻿@model DAIF2020.Models.DataModels.PoolGame
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PoolGame</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PoolGameDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PoolGameDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PoolGameName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PoolGameName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arena.ArenaName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HostingTeam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HostingTeam.ClubName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame1.ZoneGameDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame2.ZoneGameDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame3.ZoneGameDateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListPoolGames">Back to Pool Games</a>
+</div>

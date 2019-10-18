@@ -1,0 +1,57 @@
+﻿@model DAIF2020.Models.ViewModels.TeamRostersViewModel
+@{
+    ViewData["Title"] = "ListTeamRosters";
+}
+
+<h1>Team Rosters</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="TeamRosters" asp-action="Create">Create new Team</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Associations">Back to Associations</a>
+
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRosters[0].TeamRosterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRosters[0].GM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRosters[0].HeadCoach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRosters[0].AssCoach)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TeamRosters.OrderBy(t => t.TeamRosterName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamRosterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GM.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeadCoach.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssCoach.FullName)
+                </td>
+               
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="TeamRosters" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="TeamRosters" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="TeamRosters" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -32,5 +32,11 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Models.DataModels.Game> Game { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.Zone> Zone { get; set; }
         public DbSet<DAIF2020.Models.DataModels.ZoneGame> ZoneGame { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.PoolGame> PoolGame { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.SeriesStatus> SeriesStatus { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.TeamStatus> TeamStatus { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.Series> Series { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.Team> Team { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.TeamRoster> TeamRoster { get; set; }
     }
 }
