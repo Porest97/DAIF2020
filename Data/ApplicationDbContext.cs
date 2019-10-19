@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
+using DAIF2020.TheLab.Models.DataModels;
 
 namespace DAIF2020.Data
 {
@@ -38,5 +39,6 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Models.DataModels.Series> Series { get; set; }
         public DbSet<DAIF2020.Models.DataModels.Team> Team { get; set; }
         public DbSet<DAIF2020.Models.DataModels.TeamRoster> TeamRoster { get; set; }
+        public DbSet<DAIF2020.TheLab.Models.DataModels.Receipt> Receipt { get; set; }
     }
 }

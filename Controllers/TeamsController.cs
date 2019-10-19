@@ -186,6 +186,7 @@ namespace DAIF2020.Controllers
             var team = await _context.Team
                 .Include(t => t.Arena)
                 .Include(t => t.Club)
+                .Include(t => t.Club.Arena)
                 .Include(t => t.District)
                 .Include(t => t.Series)
                 .Include(t => t.TeamRoster)
