@@ -6,7 +6,16 @@
 <h1>Games</h1>
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="ListGames">Games</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="ListGames">Games (Scheduled)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="ListGamesFinal">Games (Final)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="ListGamesArchived">Games (Archived)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="ListCupGames">Games (Cup games)</a>
     </li>
 </ul>
 
@@ -20,5 +29,11 @@
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="PoolGames" asp-action="ListPoolGames">Pool Games</a>
+    </li>
+</ul>
+<h1>Tournaments</h1>
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Tornaments" asp-action="ListTournaments">Tournaments</a>
     </li>
 </ul>

@@ -1,0 +1,116 @@
+﻿@model DAIF2020.Models.DataModels.Tornament
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tornament</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TournamentName" class="control-label"></label>
+                <input asp-for="TournamentName" class="form-control" />
+                <span asp-validation-for="TournamentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TournamentDateTime" class="control-label"></label>
+                <input asp-for="TournamentDateTime" class="form-control" />
+                <span asp-validation-for="TournamentDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TournamentTypeId" class="control-label"></label>
+                <select asp-for="TournamentTypeId" class="form-control" asp-items="ViewBag.TournamentTypeId"></select>
+                <span asp-validation-for="TournamentTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId" class="control-label"></label>
+                <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
+                <span asp-validation-for="GameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId1" class="control-label"></label>
+                <select asp-for="GameId1" class="form-control" asp-items="ViewBag.GameId1"></select>
+                <span asp-validation-for="GameId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId2" class="control-label"></label>
+                <select asp-for="GameId2" class="form-control" asp-items="ViewBag.GameId2"></select>
+                <span asp-validation-for="GameId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId3" class="control-label"></label>
+                <select asp-for="GameId3" class="form-control" asp-items="ViewBag.GameId3"></select>
+                <span asp-validation-for="GameId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId4" class="control-label"></label>
+                <select asp-for="GameId4" class="form-control" asp-items="ViewBag.GameId4"></select>
+                <span asp-validation-for="GameId4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId5" class="control-label"></label>
+                <select asp-for="GameId5" class="form-control" asp-items="ViewBag.GameId5"></select>
+                <span asp-validation-for="GameId5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId6" class="control-label"></label>
+                <select asp-for="GameId6" class="form-control" asp-items="ViewBag.GameId6"></select>
+                <span asp-validation-for="GameId6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId7" class="control-label"></label>
+                <select asp-for="GameId7" class="form-control" asp-items="ViewBag.GameId7"></select>
+                <span asp-validation-for="GameId7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId8" class="control-label"></label>
+                <select asp-for="GameId8" class="form-control" asp-items="ViewBag.GameId8"></select>
+                <span asp-validation-for="GameId8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId9" class="control-label"></label>
+                <select asp-for="GameId9" class="form-control" asp-items="ViewBag.GameId9"></select>
+                <span asp-validation-for="GameId9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId10" class="control-label"></label>
+                <select asp-for="GameId10" class="form-control" asp-items="ViewBag.GameId10"></select>
+                <span asp-validation-for="GameId10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId11" class="control-label"></label>
+                <select asp-for="GameId11" class="form-control" asp-items="ViewBag.GameId11"></select>
+                <span asp-validation-for="GameId11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId12" class="control-label"></label>
+                <select asp-for="GameId12" class="form-control" asp-items="ViewBag.GameId12"></select>
+                <span asp-validation-for="GameId12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId13" class="control-label"></label>
+                <select asp-for="GameId13" class="form-control" asp-items="ViewBag.GameId13"></select>
+                <span asp-validation-for="GameId13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId14" class="control-label"></label>
+                <select asp-for="GameId14" class="form-control" asp-items="ViewBag.GameId14"></select>
+                <span asp-validation-for="GameId14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-action="ListTournaments">To Tournaments</a>
+</div>
+

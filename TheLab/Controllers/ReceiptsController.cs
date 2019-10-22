@@ -158,6 +158,27 @@ namespace DAIF2020.TheLab.Controllers
             return View(receiptsViewModel);
         }
 
+        public IActionResult ListCupGameReceipts()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType)
+                .Include(r => r.ReceiptCategory).Where(r => r.ReceiptCategoryId == 3).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
         // GET: Receipts/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -1,0 +1,277 @@
+﻿@model DAIF2020.Models.DataModels.Tornament
+@{
+    ViewData["Title"] = "TournamentDetails";
+}
+
+
+
+<div class="cool-sm-12"><h4>Tournament Details</h4></div>
+<hr />
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-12 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-12">
+                @Html.DisplayFor(model => model.TournamentName)
+            @Html.DisplayFor(model => model.Game1.GameCategory.GameCategoryName)
+            @Html.DisplayFor(model => model.TournamentType.TournamentTypeName)
+            @Html.DisplayFor(model => model.Game1.Arena.ArenaName)
+            @Html.DisplayFor(model => model.TournamentDateTime)
+        </dt>
+    </dl>
+</div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game1.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game1.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game2.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game2.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark border-left">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game3.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game3.HD2.FullName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game4.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game4.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game5.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game5.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark border-left">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game6.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game6.HD2.FullName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game7.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game7.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game8.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game8.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark border-left">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game9.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game9.HD2.FullName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game10.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game10.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game11.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game11.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark border-left">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game12.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game12.HD2.FullName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game13.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game13.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game14.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game14.HD2.FullName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-4 border-dark border-left">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15.HD1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.HD1.FullName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game15.HD2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game15.HD2.FullName)</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListTournaments">Back to Tournaments</a>
+</div>

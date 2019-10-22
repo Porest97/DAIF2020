@@ -1,0 +1,126 @@
+﻿@model DAIF2020.Models.DataModels.Tornament
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tornament</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TournamentName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TournamentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TournamentDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TournamentDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TournamentType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TournamentType.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game1.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game2.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game3.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game4.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game5.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game6.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game7.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game8.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game9.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game10.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game11.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game12)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game12.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game13)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game13.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game14)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game14.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game15)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game15.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,40 @@
+﻿@model DAIF2020.Models.ViewModels.TournamentsViewModel
+@{
+    ViewData["Title"] = "ListTournaments";
+}
+
+<h1>Tournaments</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Tornaments" asp-action="Create">Create new Tournament</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Games">Back to Games</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Tournaments[0].TournamentType)</th>
+            <th>@Html.DisplayNameFor(model => model.Tournaments[0].Game1.Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.Tournaments[0].TournamentName)</th>
+            <th>@Html.DisplayNameFor(model => model.Tournaments[0].TournamentDateTime)</th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tournaments.OrderBy(g => g.TournamentDateTime))
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TournamentType.TournamentTypeName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Game1.Arena.ArenaName)</td>
+                <td>@Html.DisplayFor(modelItem => item.TournamentName)</td>
+                <td>@Html.DisplayFor(modelItem => item.TournamentDateTime)</td>                
+                <td>
+                    <a class="btn btn-sm btn-outline-success" asp-controller="Tornaments" asp-action="TournamentDetails" asp-route-id="@item.Id">Tournament Details</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Tornaments" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Tornaments" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
