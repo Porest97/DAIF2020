@@ -3,70 +3,75 @@
     ViewData["Title"] = "ListReceipts";
 }
 
-<h1>Receipts</h1>
-
+<h1>Receipts - Created</h1>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"><p>Total:</p></div>
+    <div class="col-sm-2">@Model.Receipts.Sum(r => r.GameTotalKost)</div>
+</div>
 <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Create">Create new Receipt</a>
-<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Economics">Back to Economics</a>
-
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Economics">To Economics</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsDueToPay">To Receipts Due To Pay</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsPaid">To Receipts Paid</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsArchived">To Receipts Archived</a>
 <table class="table table-responsive-sm table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.GameDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.Arena)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.HD1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.HD2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.LD1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].Game.LD2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipts[0].ReceiptStatus)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameCategory)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameDateTime)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HomeTeam)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.AwayTeam)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD1)</th>
+            
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD2)</th>
+            
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD1)</th>
+            
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD2)</th>
+            
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].GameTotalKost)</th>
+            @*____________________________________________________________________*@           
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Receipts.OrderByDescending(r => r.Game.GameDateTime))
+        @foreach (var item in Model.Receipts.OrderBy(r => r.Game.GameDateTime))
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.GameDateTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.Arena.ArenaName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.HD1.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.HD2.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.LD1.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.LD2.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReceiptStatus.ReceiptStatusName)
-                </td>
-                <td>
-                    <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <a class="btn btn-sm btn-outline-success" asp-controller="Receipts" asp-action="Receipt" asp-route-id="@item.Id">Receipt</a>
-                    <a class="btn btn-sm btn-danger" asp-controller="Receipts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Game.GameCategory.GameCategoryName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Game.GameDateTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.Game.Arena.ArenaName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Game.HomeTeam.ClubName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Game.AwayTeam.ClubName)</td>
+            @*____________________________________________________________________*@
+            <td>@Html.DisplayFor(modelItem => item.Game.HD1.FullName)</td>
+            
+            @*____________________________________________________________________*@
+            <td>@Html.DisplayFor(modelItem => item.Game.HD2.FullName)</td>
+            
+            @*____________________________________________________________________*@
+            <td>@Html.DisplayFor(modelItem => item.Game.LD1.FullName)</td>
+            
+            @*____________________________________________________________________*@
+            <td>@Html.DisplayFor(modelItem => item.Game.LD2.FullName)</td>
+            
+            @*____________________________________________________________________*@
+            <td>@Html.DisplayFor(modelItem => item.GameTotalKost)</td>           
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Receipts" asp-action="Receipt" asp-route-id="@item.Id">Receipt</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Receipts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

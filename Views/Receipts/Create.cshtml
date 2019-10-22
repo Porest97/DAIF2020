@@ -12,22 +12,21 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ReceiptCategoryId" class="control-label"></label>
-                <select asp-for="ReceiptCategoryId" class ="form-control" asp-items="ViewBag.ReceiptCategoryId"></select>
+            <h1>----------------</h1>
+            <div class="form-group"><label asp-for="ReceiptCategory" class="control-label"></label>
+                <select asp-for="ReceiptCategoryId" class="form-control" asp-items="ViewBag.ReceiptCategoryId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="ReceiptStatusId" class="control-label"></label>
-                <select asp-for="ReceiptStatusId" class ="form-control" asp-items="ViewBag.ReceiptStatusId"></select>
+            <div class="form-group"><label asp-for="ReceiptStatus" class="control-label"></label>
+                <select asp-for="ReceiptStatusId" class="form-control" asp-items="ViewBag.ReceiptStatusId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="ReceiptTypeId" class="control-label"></label>
-                <select asp-for="ReceiptTypeId" class ="form-control" asp-items="ViewBag.ReceiptTypeId"></select>
+            <div class="form-group"><label asp-for="ReceiptType" class="control-label"></label>
+                <select asp-for="ReceiptTypeId" class="form-control" asp-items="ViewBag.ReceiptTypeId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="GameId" class="control-label"></label>
-                <select asp-for="GameId" class ="form-control" asp-items="ViewBag.GameId"></select>
+            <div class="form-group"><label asp-for="Game" class="control-label"></label>
+                <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
             </div>
+            <h1>----------------</h1>
+            <h2>HD1</h2>
             <div class="form-group">
                 <label asp-for="HD1Fee" class="control-label"></label>
                 <input asp-for="HD1Fee" class="form-control" />
@@ -59,6 +58,13 @@
                 <span asp-validation-for="HD1TotalFee" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AmountPaidHD1" class="control-label"></label>
+                <input asp-for="AmountPaidHD1" class="form-control" />
+                <span asp-validation-for="AmountPaidHD1" class="text-danger"></span>
+            </div>
+            <h1>----------------</h1>
+            <h2>HD2</h2>
+            <div class="form-group">
                 <label asp-for="HD2Fee" class="control-label"></label>
                 <input asp-for="HD2Fee" class="form-control" />
                 <span asp-validation-for="HD2Fee" class="text-danger"></span>
@@ -88,6 +94,14 @@
                 <input asp-for="HD2TotalFee" class="form-control" />
                 <span asp-validation-for="HD2TotalFee" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="AmountPaidHD2" class="control-label"></label>
+                <input asp-for="AmountPaidHD2" class="form-control" />
+                <span asp-validation-for="AmountPaidHD2" class="text-danger"></span>
+            </div>
+            <h1>----------------</h1>
+            <h2>LD1</h2>
             <div class="form-group">
                 <label asp-for="LD1Fee" class="control-label"></label>
                 <input asp-for="LD1Fee" class="form-control" />
@@ -119,6 +133,13 @@
                 <span asp-validation-for="LD1TotalFee" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AmountPaidLD1" class="control-label"></label>
+                <input asp-for="AmountPaidLD1" class="form-control" />
+                <span asp-validation-for="AmountPaidLD1" class="text-danger"></span>
+            </div>
+            <h1>----------------</h1>
+            <h2>LD2</h2>
+            <div class="form-group">
                 <label asp-for="LD2Fee" class="control-label"></label>
                 <input asp-for="LD2Fee" class="form-control" />
                 <span asp-validation-for="LD2Fee" class="text-danger"></span>
@@ -149,29 +170,16 @@
                 <span asp-validation-for="LD2TotalFee" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GameTotalKost" class="control-label"></label>
-                <input asp-for="GameTotalKost" class="form-control" />
-                <span asp-validation-for="GameTotalKost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AmountPaidHD1" class="control-label"></label>
-                <input asp-for="AmountPaidHD1" class="form-control" />
-                <span asp-validation-for="AmountPaidHD1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AmountPaidHD2" class="control-label"></label>
-                <input asp-for="AmountPaidHD2" class="form-control" />
-                <span asp-validation-for="AmountPaidHD2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AmountPaidLD1" class="control-label"></label>
-                <input asp-for="AmountPaidLD1" class="form-control" />
-                <span asp-validation-for="AmountPaidLD1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="AmountPaidLD2" class="control-label"></label>
                 <input asp-for="AmountPaidLD2" class="form-control" />
                 <span asp-validation-for="AmountPaidLD2" class="text-danger"></span>
+            </div>
+            <h1>----------------</h1>
+            <h2>Gamekost</h2>
+            <div class="form-group">
+                <label asp-for="GameTotalKost" class="control-label"></label>
+                <input asp-for="GameTotalKost" class="form-control" />
+                <span asp-validation-for="GameTotalKost" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TotalAmountPaid" class="control-label"></label>
@@ -183,14 +191,12 @@
                 <input asp-for="TotalAmountToPay" class="form-control" />
                 <span asp-validation-for="TotalAmountToPay" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            <h1>----------------</h1>
+            <div class="form-group"><input type="submit" value="Create" class="btn btn-sm btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a class="btn btn-sm btn-success" asp-action="ListReceipts">Back to Receipts</a>
-</div>
+<h1>----------------</h1>
+<div><a class="btn btn-sm btn-success" asp-action="ListReceipts">Back to Receipts</a></div>
 

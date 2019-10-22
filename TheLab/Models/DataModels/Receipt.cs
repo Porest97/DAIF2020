@@ -150,5 +150,7 @@ namespace DAIF2020.TheLab.Models.DataModels
         [Display(Name = "Total Amount To Pay")]
         [DataType(DataType.Currency)]
         public int TotalAmountToPay { get; set; }
+
+        
     }
 }

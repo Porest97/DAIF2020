@@ -2,12 +2,9 @@
 @{
     ViewData["Title"] = "Receipt";
 }
-
-<h1>Receipt</h1>
-
-<h4>Game Receipt</h4>
+    <div class="cool-sm-12"><h4>Gamereceipt</h4></div>
 <hr />
-<div class="row col-sm-12 text-body">
+<div class="row col-sm-12 text-body border-dark table-bordered">
     <div class="col-sm-6 border-dark">
         <dl class="row border-dark">
             <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.GameDateTime)</dt>
@@ -31,9 +28,9 @@
         </dl>
     </div>
 </div>
-<div class="row col-sm-12">
-    <div class="col-sm-6 border-dark">
-        <dl class="row flex-grow-1 border-success">
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-6 border-dark border-right">
+        <dl class="row border-dark">
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1)</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.CName)</dd>
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.Address)</dt>
@@ -58,8 +55,8 @@
             <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1TotalFee)</dd>
         </dl>
     </div>
-    <div class="col-sm-6 border-dark">
-        <dl class="row flex-grow-1 border-success">
+    <div class="col-sm-6 ">
+        <dl class="row">
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD2)</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.CName)</dd>
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.Address)</dt>
@@ -85,9 +82,9 @@
         </dl>
     </div>
 </div>
-<div class="row col-sm-12">
-    <div class="col-sm-6 border-dark">
-        <dl class="row flex-grow-1 border-success">
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-6 border-dark border-right">
+        <dl class="row border-dark">
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.LD1)</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.LD1.CName)</dd>
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.LD1.Address)</dt>
@@ -112,8 +109,8 @@
             <dd class="col-sm-10">@Html.DisplayFor(model => model.LD1TotalFee)</dd>
         </dl>
     </div>
-    <div class="col-sm-6 border-dark">
-        <dl class="row flex-grow-1 border-dark">
+    <div class="col-sm-6">
+        <dl class="row">
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.LD2)</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.LD2.CName)</dd>
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.LD2.Address)</dt>
@@ -139,7 +136,7 @@
         </dl>
     </div>
 </div>
-<dl class="row flex-grow-1 border-success">
+<dl class="row col-sm-12 text-body border-dark table-bordered">
     <dt class="col-sm-2">@Html.DisplayNameFor(model => model.GameTotalKost)</dt>
     <dd class="col-sm-10">@Html.DisplayFor(model => model.GameTotalKost)</dd>
     <dt class="col-sm-2">@Html.DisplayNameFor(model => model.ReceiptStatus)</dt>

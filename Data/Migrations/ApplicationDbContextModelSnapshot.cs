@@ -722,6 +722,89 @@ namespace DAIF2020.Data.Migrations
                     b.ToTable("Zone");
                 });
 
+            modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.PoolGameReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AmountPaidUDZ1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountPaidUDZ2")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DUZ1LateGameKost")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PoolGameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PoolGameTotalKost")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalAmountPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalAmountToPay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Alowens")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Fee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Other")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1TotalFee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1TravelKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Alowens")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Fee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2LateGameKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Other")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2TotalFee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2TravelKost")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PoolGameId");
+
+                    b.HasIndex("ReceiptCategoryId");
+
+                    b.HasIndex("ReceiptStatusId");
+
+                    b.HasIndex("ReceiptTypeId");
+
+                    b.ToTable("PoolGameReceipt");
+                });
+
             modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.Receipt", b =>
                 {
                     b.Property<int>("Id")
@@ -845,6 +928,89 @@ namespace DAIF2020.Data.Migrations
                     b.HasIndex("ReceiptTypeId");
 
                     b.ToTable("Receipt");
+                });
+
+            modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.ZoneGameReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AmountPaidUDZ1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountPaidUDZ2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalAmountPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalAmountToPay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Alowens")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Fee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1LateGameKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1Other")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1TotalFee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ1TravelKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Alowens")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Fee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2LateGameKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2Other")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2TotalFee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UDZ2TravelKost")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ZoneGameTotalKost")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiptCategoryId");
+
+                    b.HasIndex("ReceiptStatusId");
+
+                    b.HasIndex("ReceiptTypeId");
+
+                    b.HasIndex("ZoneGameId");
+
+                    b.ToTable("ZoneGameReceipt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -1274,6 +1440,25 @@ namespace DAIF2020.Data.Migrations
                         .HasForeignKey("ZoneId1");
                 });
 
+            modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.PoolGameReceipt", b =>
+                {
+                    b.HasOne("DAIF2020.Models.DataModels.PoolGame", "PoolGame")
+                        .WithMany()
+                        .HasForeignKey("PoolGameId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptCategory", "ReceiptCategory")
+                        .WithMany()
+                        .HasForeignKey("ReceiptCategoryId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptStatus", "ReceiptStatus")
+                        .WithMany()
+                        .HasForeignKey("ReceiptStatusId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptType", "ReceiptType")
+                        .WithMany()
+                        .HasForeignKey("ReceiptTypeId");
+                });
+
             modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.Receipt", b =>
                 {
                     b.HasOne("DAIF2020.Models.DataModels.Game", "Game")
@@ -1291,6 +1476,25 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.SettingModels.ReceiptType", "ReceiptType")
                         .WithMany()
                         .HasForeignKey("ReceiptTypeId");
+                });
+
+            modelBuilder.Entity("DAIF2020.TheLab.Models.DataModels.ZoneGameReceipt", b =>
+                {
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptCategory", "ReceiptCategory")
+                        .WithMany()
+                        .HasForeignKey("ReceiptCategoryId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptStatus", "ReceiptStatus")
+                        .WithMany()
+                        .HasForeignKey("ReceiptStatusId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptType", "ReceiptType")
+                        .WithMany()
+                        .HasForeignKey("ReceiptTypeId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

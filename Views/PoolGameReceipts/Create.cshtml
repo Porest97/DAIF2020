@@ -1,0 +1,126 @@
+﻿@model DAIF2020.TheLab.Models.DataModels.PoolGameReceipt
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PoolGameReceipt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReceiptCategoryId" class="control-label"></label>
+                <select asp-for="ReceiptCategoryId" class ="form-control" asp-items="ViewBag.ReceiptCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptStatusId" class="control-label"></label>
+                <select asp-for="ReceiptStatusId" class ="form-control" asp-items="ViewBag.ReceiptStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptTypeId" class="control-label"></label>
+                <select asp-for="ReceiptTypeId" class ="form-control" asp-items="ViewBag.ReceiptTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoolGameId" class="control-label"></label>
+                <select asp-for="PoolGameId" class ="form-control" asp-items="ViewBag.PoolGameId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1Fee" class="control-label"></label>
+                <input asp-for="UDZ1Fee" class="form-control" />
+                <span asp-validation-for="UDZ1Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1TravelKost" class="control-label"></label>
+                <input asp-for="UDZ1TravelKost" class="form-control" />
+                <span asp-validation-for="UDZ1TravelKost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1Alowens" class="control-label"></label>
+                <input asp-for="UDZ1Alowens" class="form-control" />
+                <span asp-validation-for="UDZ1Alowens" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DUZ1LateGameKost" class="control-label"></label>
+                <input asp-for="DUZ1LateGameKost" class="form-control" />
+                <span asp-validation-for="DUZ1LateGameKost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1Other" class="control-label"></label>
+                <input asp-for="UDZ1Other" class="form-control" />
+                <span asp-validation-for="UDZ1Other" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1TotalFee" class="control-label"></label>
+                <input asp-for="UDZ1TotalFee" class="form-control" />
+                <span asp-validation-for="UDZ1TotalFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2Fee" class="control-label"></label>
+                <input asp-for="UDZ2Fee" class="form-control" />
+                <span asp-validation-for="UDZ2Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2TravelKost" class="control-label"></label>
+                <input asp-for="UDZ2TravelKost" class="form-control" />
+                <span asp-validation-for="UDZ2TravelKost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2Alowens" class="control-label"></label>
+                <input asp-for="UDZ2Alowens" class="form-control" />
+                <span asp-validation-for="UDZ2Alowens" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2LateGameKost" class="control-label"></label>
+                <input asp-for="UDZ2LateGameKost" class="form-control" />
+                <span asp-validation-for="UDZ2LateGameKost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2Other" class="control-label"></label>
+                <input asp-for="UDZ2Other" class="form-control" />
+                <span asp-validation-for="UDZ2Other" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2TotalFee" class="control-label"></label>
+                <input asp-for="UDZ2TotalFee" class="form-control" />
+                <span asp-validation-for="UDZ2TotalFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoolGameTotalKost" class="control-label"></label>
+                <input asp-for="PoolGameTotalKost" class="form-control" />
+                <span asp-validation-for="PoolGameTotalKost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmountPaidUDZ1" class="control-label"></label>
+                <input asp-for="AmountPaidUDZ1" class="form-control" />
+                <span asp-validation-for="AmountPaidUDZ1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmountPaidUDZ2" class="control-label"></label>
+                <input asp-for="AmountPaidUDZ2" class="form-control" />
+                <span asp-validation-for="AmountPaidUDZ2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmountPaid" class="control-label"></label>
+                <input asp-for="TotalAmountPaid" class="form-control" />
+                <span asp-validation-for="TotalAmountPaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmountToPay" class="control-label"></label>
+                <input asp-for="TotalAmountToPay" class="form-control" />
+                <span asp-validation-for="TotalAmountToPay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -32,13 +32,14 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(r => r.Game.HomeTeam)
                 .Include(r => r.Game.AwayTeam)
                 .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
                 .Include(r => r.ReceiptCategory)
                 .Include(r => r.ReceiptStatus)
                 .Include(r => r.ReceiptType);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Receipt/Details/
+        // GET: Receipt !
         public async Task<IActionResult> Receipt(int? id)
         {
             if (id == null)
@@ -55,6 +56,7 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(r => r.Game.HomeTeam)
                 .Include(r => r.Game.AwayTeam)
                 .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
                 .Include(r => r.ReceiptCategory)
                 .Include(r => r.ReceiptStatus)
                 .Include(r => r.ReceiptType)
@@ -67,6 +69,8 @@ namespace DAIF2020.TheLab.Controllers
             return View(receipt);
         }
 
+        
+        //Lists Receipts with status Created !
         public IActionResult ListReceipts()
         {
             var receiptsViewModel = new ReceiptsViewModel()
@@ -80,10 +84,76 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(r => r.Game.HomeTeam)
                 .Include(r => r.Game.AwayTeam)
                 .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
                 .Include(r => r.ReceiptCategory)
                 .Include(r => r.ReceiptStatus)
-                .Include(r => r.ReceiptType)
-                .ToList()
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 1).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
+        //Lists Receipts with status DueToPay !
+        public IActionResult ListReceiptsDueToPay()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 2).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
+        //Lists Receipts with status Paid !
+        public IActionResult ListReceiptsPaid()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 3).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
+        //Lists Receipts with status Paid !
+        public IActionResult ListReceiptsArchived()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 5).ToList()
             };
             return View(receiptsViewModel);
         }
@@ -105,6 +175,7 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(r => r.Game.HomeTeam)
                 .Include(r => r.Game.AwayTeam)
                 .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
                 .Include(r => r.ReceiptCategory)
                 .Include(r => r.ReceiptStatus)
                 .Include(r => r.ReceiptType)
@@ -136,6 +207,25 @@ namespace DAIF2020.TheLab.Controllers
         {
             if (ModelState.IsValid)
             {
+                var applicationDbContext = _context.Receipt
+                 .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType);
+                receipt.HD1TotalFee = receipt.HD1Fee + receipt.HD1TravelKost + receipt.HD1Alowens + receipt.HD1LateGameKost + receipt.HD1Other;
+                receipt.HD2TotalFee = receipt.HD2Fee + receipt.HD2TravelKost + receipt.HD2Alowens + receipt.HD2LateGameKost + receipt.HD2Other;
+                receipt.LD1TotalFee = receipt.LD1Fee + receipt.LD1TravelKost + receipt.LD1Alowens + receipt.LD1LateGameKost + receipt.LD1Other;
+                receipt.LD2TotalFee = receipt.LD2Fee + receipt.LD2TravelKost + receipt.LD2Alowens + receipt.LD2LateGameKost + receipt.LD2Other;
+                receipt.GameTotalKost = receipt.HD1TotalFee + receipt.HD2TotalFee + receipt.LD1TotalFee + receipt.LD2TotalFee;
+
                 _context.Add(receipt);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(ListReceipts));
@@ -183,6 +273,25 @@ namespace DAIF2020.TheLab.Controllers
             {
                 try
                 {
+                    var applicationDbContext = _context.Receipt
+                    .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType);
+                    receipt.HD1TotalFee = receipt.HD1Fee + receipt.HD1TravelKost + receipt.HD1Alowens + receipt.HD1LateGameKost + receipt.HD1Other;
+                    receipt.HD2TotalFee = receipt.HD2Fee + receipt.HD2TravelKost + receipt.HD2Alowens + receipt.HD2LateGameKost + receipt.HD2Other;
+                    receipt.LD1TotalFee = receipt.LD1Fee + receipt.LD1TravelKost + receipt.LD1Alowens + receipt.LD1LateGameKost + receipt.LD1Other;
+                    receipt.LD2TotalFee = receipt.LD2Fee + receipt.LD2TravelKost + receipt.LD2Alowens + receipt.LD2LateGameKost + receipt.LD2Other;
+                    receipt.GameTotalKost = receipt.HD1TotalFee + receipt.HD2TotalFee + receipt.LD1TotalFee + receipt.LD2TotalFee;
+
                     _context.Update(receipt);
                     await _context.SaveChangesAsync();
                 }
@@ -215,7 +324,7 @@ namespace DAIF2020.TheLab.Controllers
             }
 
             var receipt = await _context.Receipt
-                .Include(r => r.Game)
+               .Include(r => r.Game)
                 .Include(r => r.Game.HD1)
                 .Include(r => r.Game.HD2)
                 .Include(r => r.Game.LD1)
@@ -223,6 +332,7 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(r => r.Game.HomeTeam)
                 .Include(r => r.Game.AwayTeam)
                 .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
                 .Include(r => r.ReceiptCategory)
                 .Include(r => r.ReceiptStatus)
                 .Include(r => r.ReceiptType)

@@ -1,0 +1,102 @@
+﻿@model DAIF2020.TheLab.Models.DataModels.ZoneGameReceipt
+
+@{
+    ViewData["Title"] = "ZoneGameReceipt";
+}
+
+<div class="cool-sm-12"><h4>Poolgamereceipt</h4></div>
+<hr />
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.ZoneGameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.ZoneGameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.Arena)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.Arena.ArenaName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.GameCategory)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.GameCategory.GameCategoryName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.Zone1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.Zone1.ZoneName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.TeamsZ1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.TSMNumberZone1)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.Zone2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.Zone2.ZoneName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.TeamsZ2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.TSMNumberZone2)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.Zone1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.Zone1.ZoneName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.UDZ1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.UDZ1.CName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1Fee)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1Fee)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1TravelKost)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1TravelKost)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1Alowens)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1Alowens)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1LateGameKost)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1LateGameKost)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1Other)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1Other)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1TotalFee)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ1TotalFee)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.Zone2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.Zone2.ZoneName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.UDZ2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.UDZ2.CName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ2Fee)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2Fee)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ2TravelKost)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2TravelKost)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ2Alowens)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2Alowens)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ2LateGameKost)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2LateGameKost)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1Other)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2Other)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.UDZ1TotalFee)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.UDZ2TotalFee)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.TSMNumberZone1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.TSMNumberZone1)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.HomeTeam1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.HomeTeam1.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.AwayTeam1)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.AwayTeam1.ClubName)</dd>
+            
+        </dl>
+    </div>
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.TSMNumberZone2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.TSMNumberZone2)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.HomeTeam2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.HomeTeam2.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZoneGame.AwayTeam2)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ZoneGame.AwayTeam2.ClubName)</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListZoneGameReceipts">Back to Zonegme Receipts</a>
+</div>

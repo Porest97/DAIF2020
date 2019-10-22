@@ -35,9 +35,9 @@ namespace DAIF2020.Models.DataModels
 
         // Zone 1 idetifyer !
 
-        [Display(Name = "Zone 1")]
+        [Display(Name = "Zone")]
         public int? ZoneId { get; set; }
-        [Display(Name = "Zone 1")]
+        [Display(Name = "Zone")]
         [ForeignKey("ZoneId")]
         public Zone Zone1 { get; set; }
 
@@ -57,6 +57,8 @@ namespace DAIF2020.Models.DataModels
         [ForeignKey("ClubId1")]
         public Club AwayTeam1 { get; set; }
 
+        [Display(Name = "Game")]
+        public string TeamsZ1 { get { return string.Format("{0} {1} ", HomeTeam1, AwayTeam1); } }
         //Zone 1 UDZ Identifyer!
         [Display(Name = "UDZ")]
         public int? PersonId { get; set; }
@@ -68,9 +70,9 @@ namespace DAIF2020.Models.DataModels
         /// Boarder zone1 and zone2 !
         /// </summary>
         // Zone 2 idetifyer !
-        [Display(Name = "Zone 2")]
+        [Display(Name = "Zone")]
         public int? ZoneId1 { get; set; }
-        [Display(Name = "Zone 2")]
+        [Display(Name = "Zone")]
         [ForeignKey("ZoneId1")]
         public Zone Zone2 { get; set; }
 
@@ -91,6 +93,10 @@ namespace DAIF2020.Models.DataModels
         [ForeignKey("ClubId3")]
         public Club AwayTeam2 { get; set; }
 
+        [Display(Name = "Game")]
+        public string TeamsZ2 { get { return string.Format("{0} {1} ", HomeTeam2, AwayTeam2); } }
+
+        //Zone 2 UDZ Identifyer!
         [Display(Name = "UDZ")]
         public int? PersonId1 { get; set; }
         [Display(Name = "UDZ")]

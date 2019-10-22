@@ -12,6 +12,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Games[0].GameCategory)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Games[0].GameDateTime)
             </th>
             <th>
@@ -27,18 +30,30 @@
                 @Html.DisplayNameFor(model => model.Games[0].Result)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Games[0].GameStatus)
+                @Html.DisplayNameFor(model => model.Games[0].HD1)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Games[0].GameCategory)
+                @Html.DisplayNameFor(model => model.Games[0].HD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].LD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].LD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games[0].GameStatus)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Games.OrderByDescending(g => g.GameDateTime))
+        @foreach (var item in Model.Games.OrderBy(g => g.GameDateTime))
         {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GameDateTime)
             </td>
@@ -55,10 +70,19 @@
                 @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
+                @Html.DisplayFor(modelItem => item.HD1.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+                @Html.DisplayFor(modelItem => item.HD2.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LD1.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LD2.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
             </td>
             <td>
                 <a class="btn btn-sm btn-success" asp-controller="Games" asp-action="Edit" asp-route-id="@item.Id">Edit</a>

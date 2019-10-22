@@ -1,0 +1,75 @@
+﻿@model DAIF2020.TheLab.Models.VeiwModels.PoolGameReceiptsViewModel
+@{
+    ViewData["Title"] = "ListPoolGameReceipts";
+}
+
+<h1>ListPoolGameReceipts</h1>
+
+
+<a class="btn btn-sm btn-success" asp-controller="PoolGameReceipts" asp-action="Create">Create new Poolgame Receipt</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Economics">Back to Economics</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.PoolGameDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.HostingTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.ZoneGame1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.ZoneGame2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].PoolGame.ZoneGame3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoolGameReceipts[0].ReceiptStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PoolGameReceipts.OrderByDescending(pgr => pgr.PoolGame.PoolGameDateTime))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.PoolGameDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.Arena.ArenaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.HostingTeam.ClubName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.ZoneGame1.TSMNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.ZoneGame2.TSMNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoolGame.ZoneGame3.TSMNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiptStatus.ReceiptStatusName)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="PoolGameReceipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="PoolGameReceipts" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-outline-success" asp-controller="PoolGameReceipts" asp-action="PoolGameReceipt" asp-route-id="@item.Id">Receipt</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="PoolGameReceipts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@**@<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>
