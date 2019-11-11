@@ -26,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Games.OrderBy(g => g.GameDateTime))
+        @foreach (var item in Model.Games.OrderByDescending(g => g.GameDateTime))
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)</td>

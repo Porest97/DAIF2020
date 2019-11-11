@@ -57,7 +57,7 @@ namespace DAIF2020.Controllers
                 .Include(z => z.UDZ1)
                 .Include(z => z.UDZ2)
                 .Include(z => z.Zone1)
-                .Include(z => z.Zone2)
+                .Include(z => z.Zone2).Where(z => z.GameStatusId <2)
                 .ToList()
             };
             return View(zoneGamesViewModel);

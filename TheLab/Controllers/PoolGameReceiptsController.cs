@@ -67,11 +67,21 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(p => p.PoolGame)
                 .Include(p => p.PoolGame.Arena)
                 .Include(p => p.PoolGame.HostingTeam)
-                // TeamsZ1 & TeamsZ2 Include !
+                // ZoneGame1 TeamsZ1 & TeamsZ2 Include !
                 .Include(p => p.PoolGame.ZoneGame1.HomeTeam1)
                 .Include(p => p.PoolGame.ZoneGame1.HomeTeam2)
                 .Include(p => p.PoolGame.ZoneGame1.AwayTeam1)
                 .Include(p => p.PoolGame.ZoneGame1.AwayTeam2)
+                // ZoneGame2 TeamsZ1 & TeamsZ2 Include !
+                .Include(p => p.PoolGame.ZoneGame2.HomeTeam1)
+                .Include(p => p.PoolGame.ZoneGame2.HomeTeam2)
+                .Include(p => p.PoolGame.ZoneGame2.AwayTeam1)
+                .Include(p => p.PoolGame.ZoneGame2.AwayTeam2)
+                // ZoneGame3 TeamsZ1 & TeamsZ2 Include !
+                .Include(p => p.PoolGame.ZoneGame3.HomeTeam1)
+                .Include(p => p.PoolGame.ZoneGame3.HomeTeam2)
+                .Include(p => p.PoolGame.ZoneGame3.AwayTeam1)
+                .Include(p => p.PoolGame.ZoneGame3.AwayTeam2)
                 // UDZ1 & UDZ2 Include !
                 .Include(p => p.PoolGame.ZoneGame1.UDZ1)
                 .Include(p => p.PoolGame.ZoneGame1.UDZ2)

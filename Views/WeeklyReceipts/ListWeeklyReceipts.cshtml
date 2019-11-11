@@ -1,0 +1,59 @@
+﻿@model DAIF2020.TheLab.Models.VeiwModels.WeeklyReceiptsViewModel
+@{
+    ViewData["Title"] = "ListWeeklyReceipts";
+}
+
+<h1>Weekly Receipts - Created</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="WeeklyReceipts" asp-action="Create">Create new Weekly Receipt</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Economics">Back to Economics</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyReceipts[0].ReceiptStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyReceipts[0].Referee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyReceipts[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeeklyReceipts[0].EndDate)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WeeklyReceipts.OrderBy(wr => wr.StartDate))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceiptStatus.ReceiptStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Referee.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="WeeklyReceipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="WeeklyReceipts" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @*  <a class="btn btn-sm btn-outline-success" asp-controller="WeeklyReceipts" asp-action="WeeklyReceipt" asp-route-id="@item.Id">Receipt</a>*@
+                    <a class="btn btn-sm btn-danger" asp-controller="WeeklyReceipts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@**@<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
+
+

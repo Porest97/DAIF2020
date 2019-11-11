@@ -44,5 +44,6 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.TheLab.Models.DataModels.ZoneGameReceipt> ZoneGameReceipt { get; set; }
         public DbSet<DAIF2020.Models.DataModels.Tornament> Tornament { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.TournamentType> TournamentType { get; set; }
+        public DbSet<DAIF2020.TheLab.Models.DataModels.WeeklyReceipt> WeeklyReciept { get; set; }
     }
 }
