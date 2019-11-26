@@ -20,6 +20,7 @@
 <table class="table table-responsive-sm table-striped">
     <thead>
         <tr>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.TSMNumber)</th>
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameCategory)</th>
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameDateTime)</th>
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.Arena)</th>
@@ -27,19 +28,19 @@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.AwayTeam)</th>
             @*____________________________________________________________________*@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD1)</th>
-            
+
             @*____________________________________________________________________*@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD2)</th>
-            
+
             @*____________________________________________________________________*@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD1)</th>
-            
+
             @*____________________________________________________________________*@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD2)</th>
-            
+
             @*____________________________________________________________________*@
             <th>@Html.DisplayNameFor(model => model.Receipts[0].GameTotalKost)</th>
-            @*____________________________________________________________________*@           
+            @*____________________________________________________________________*@
             <th></th>
         </tr>
     </thead>
@@ -47,6 +48,7 @@
         @foreach (var item in Model.Receipts.OrderBy(r => r.Game.GameDateTime))
         {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.Game.TSMNumber)</td>
             <td>@Html.DisplayFor(modelItem => item.Game.GameCategory.GameCategoryName)</td>
             <td>@Html.DisplayFor(modelItem => item.Game.GameDateTime)</td>
             <td>@Html.DisplayFor(modelItem => item.Game.Arena.ArenaName)</td>
@@ -54,18 +56,18 @@
             <td>@Html.DisplayFor(modelItem => item.Game.AwayTeam.ClubName)</td>
             @*____________________________________________________________________*@
             <td>@Html.DisplayFor(modelItem => item.Game.HD1.FullName)</td>
-            
+
             @*____________________________________________________________________*@
             <td>@Html.DisplayFor(modelItem => item.Game.HD2.FullName)</td>
-            
+
             @*____________________________________________________________________*@
             <td>@Html.DisplayFor(modelItem => item.Game.LD1.FullName)</td>
-            
+
             @*____________________________________________________________________*@
             <td>@Html.DisplayFor(modelItem => item.Game.LD2.FullName)</td>
-            
+
             @*____________________________________________________________________*@
-            <td>@Html.DisplayFor(modelItem => item.GameTotalKost)</td>           
+            <td>@Html.DisplayFor(modelItem => item.GameTotalKost)</td>
             <td>
                 <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                 <a class="btn btn-sm btn-outline-success" asp-controller="Receipts" asp-action="Receipt" asp-route-id="@item.Id">Receipt</a>

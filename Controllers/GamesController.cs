@@ -97,6 +97,27 @@ namespace DAIF2020.Controllers
             return View(gamesViewModel);
         }
 
+        //Game (PZ-Game)
+        public IActionResult ListGamesPZ()
+        {
+            var gamesViewModel = new GamesViewModel()
+            {
+                Games = _context.Game
+                .Include(g => g.Arena)
+                .Include(g => g.AwayTeam)
+                .Include(g => g.GameCategory)
+                .Include(g => g.GameType)
+                .Include(g => g.HD1)
+                .Include(g => g.HD2)
+                .Include(g => g.HomeTeam)
+                .Include(g => g.LD1)
+                .Include(g => g.LD2)
+                .Include(g => g.GameStatus).Where(g => g.GameStatusId == 5)
+                .ToList()
+            };
+            return View(gamesViewModel);
+        }
+
         //Game (Cup games)
         public IActionResult ListCupGames()
         {
