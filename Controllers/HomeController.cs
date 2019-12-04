@@ -63,6 +63,11 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult TSM()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

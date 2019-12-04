@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
 using DAIF2020.TheLab.Models.DataModels;
+using DAIF2020.TSM.Models.DataModels;
 
 namespace DAIF2020.Data
 {
@@ -45,5 +46,7 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Models.DataModels.Tornament> Tornament { get; set; }
         public DbSet<DAIF2020.Models.SettingModels.TournamentType> TournamentType { get; set; }
         public DbSet<DAIF2020.TheLab.Models.DataModels.WeeklyReceipt> WeeklyReciept { get; set; }
+        public DbSet<DAIF2020.TSM.Models.DataModels.TSMGameStatus> TSMGameStatus { get; set; }
+        public DbSet<DAIF2020.TSM.Models.DataModels.TSMGame> TSMGame { get; set; }
     }
 }

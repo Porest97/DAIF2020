@@ -1,0 +1,51 @@
+﻿@model DAIF2020.TSM.Models.ViewModels.TSMGamesViewModel
+@{
+    ViewData["Title"] = "ListTSMGames";
+}
+
+<h1>TSMGames</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="TSMGames" asp-action="Create">Add TSMGame</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="TSM">Back to TSMGames</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].GameDateTime)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].HomeTeam)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].AwayTeam)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].HD1)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].HD2)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].LD1)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].LD2)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].Supervisor)</th>
+            <th>@Html.DisplayNameFor(model => model.TSMGames[0].TSMGameStatus)</th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TSMGames.OrderBy(g => g.GameDateTime))
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.GameDateTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.Arena)</td>
+                <td>@Html.DisplayFor(modelItem => item.HomeTeam)</td>
+                <td>@Html.DisplayFor(modelItem => item.AwayTeam)</td>
+                <td>@Html.DisplayFor(modelItem => item.HD1)</td>
+                <td>@Html.DisplayFor(modelItem => item.HD2)</td>
+                <td>@Html.DisplayFor(modelItem => item.LD1)</td>
+                <td>@Html.DisplayFor(modelItem => item.LD2)</td>
+                <td>@Html.DisplayFor(modelItem => item.Supervisor)</td>
+                <td>@Html.DisplayFor(modelItem => item.TSMGameStatus.TSMGameStatusName)</td>                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="TSMGames" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="TSMGames" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="TSMGames" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>
