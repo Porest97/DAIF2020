@@ -78,6 +78,11 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult Planner()
+        {
+            return View();
+        }
+
         public IActionResult Links()
         {
             return View();

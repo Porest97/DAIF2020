@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DAIF2020.Planner.Models.DataModels.Activity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meeting.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

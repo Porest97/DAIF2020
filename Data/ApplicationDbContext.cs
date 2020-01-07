@@ -7,6 +7,7 @@ using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
 using DAIF2020.TheLab.Models.DataModels;
 using DAIF2020.TSM.Models.DataModels;
+using DAIF2020.Planner.Models.DataModels;
 
 namespace DAIF2020.Data
 {
@@ -48,5 +49,9 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.TheLab.Models.DataModels.WeeklyReceipt> WeeklyReciept { get; set; }
         public DbSet<DAIF2020.TSM.Models.DataModels.TSMGameStatus> TSMGameStatus { get; set; }
         public DbSet<DAIF2020.TSM.Models.DataModels.TSMGame> TSMGame { get; set; }
+        public DbSet<DAIF2020.Models.SettingModels.ActivityStatus> ActivityStatus { get; set; }
+        public DbSet<DAIF2020.Planner.Models.DataModels.Activity> Activity { get; set; }
+        public DbSet<DAIF2020.Planner.Models.DataModels.Meeting> Meeting { get; set; }
+        public DbSet<DAIF2020.Planner.Models.DataModels.Location> Location { get; set; }
     }
 }

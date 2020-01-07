@@ -1,0 +1,154 @@
+﻿@model DAIF2020.TheLab.Models.DataModels.Receipt
+@{
+    ViewData["Title"] = "VetsReceipt";
+}
+
+
+
+
+<div class="text-left"><a><img src="~/img/SIF-Logga.png" /></a></div>
+<div class="cool-sm-12"><h4>Veteran Gamereceipt</h4></div>
+
+<div class="row col-sm-12 text-body border-dark table-bordered">
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.GameDateTime)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.GameDateTime)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.GameCategory.GameCategoryName)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.GameCategory.GameCategoryName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.TSMNumber)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.TSMNumber)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.Arena)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.Arena.ArenaName)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-6 border-dark">
+        <dl class="row border-dark">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.HomeTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.HomeTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.AwayTeam)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.AwayTeam.ClubName)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Game.Result)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Game.Result)</dd>
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ReceiptCategory)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ReceiptCategory.ReceiptCategoryName)</dd>
+        </dl>
+    </div>
+</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-6 border-dark border-right">
+        <dl class="row border-dark">
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.CName)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.Address)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.Address)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.Email)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.Email)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.SwishNumber)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.SwishNumber)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.BankAccount)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD1.BankAccount)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD1Fee)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1Fee)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD1TravelKost)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1TravelKost)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD1LateGameKost)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1LateGameKost)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD1Other)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1Other)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD1TotalFee)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD1TotalFee)</dd>
+        </dl>
+    </div>
+    <div class="col-sm-6 ">
+        <dl class="row">
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD2)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.CName)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD1.Address)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.Address)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD2.Email)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.Email)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD2.SwishNumber)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.SwishNumber)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Game.HD2.BankAccount)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Game.HD2.BankAccount)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD2Fee)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD2Fee)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD2TravelKost)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD2TravelKost)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD2LateGameKost)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD2LateGameKost)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD2Other)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD2Other)</dd>
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HD2TotalFee)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.HD2TotalFee)</dd>
+        </dl>
+    </div>
+</div>
+@*_______________________________________________________________________________________________________________*@
+<div class="row col-sm-12 border-dark table-bordered">Travel fee: @Html.DisplayFor(model => model.Game.HD1.FullName)</div>
+
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.HD1.Address)</div>
+    <div class="col-sm-4 border-dark border-right">To: @Html.DisplayFor(model => model.Game.Arena.Address)</div>
+    <div class="col-sm-4">Distance in km: 185 </div>
+</div>
+@*_______________________________________________________________________________________________________________*@
+<div class="row col-sm-12 border-dark table-bordered">Travel fee: @Html.DisplayFor(model => model.Game.HD2.FullName)</div>
+
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.HD2.Address)</div>
+    <div class="col-sm-4 border-dark border-right">To: @Html.DisplayFor(model => model.Game.Arena.Address)</div>
+    <div class="col-sm-4">Distance in km: </div>
+</div>
+@*_______________________________________________________________________________________________________________*@
+<div class="row col-sm-12 border-dark table-bordered">Fees season 2019/2020</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">Seies</div>
+    <div class="col-sm-4 border-dark border-right">2 referee system</div>
+    <div class="col-sm-4">1 referee system</div>
+</div>
+@*_______________________________________________________________________________________________________________*@
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">+35 Elit, Men REC</div>
+    <div class="col-sm-4 border-dark border-right">450kr / Referee</div>
+    <div class="col-sm-4">675kr / Referee</div>
+</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">+35 Div1 To +60</div>
+    <div class="col-sm-4 border-dark border-right">400kr / Referee</div>
+    <div class="col-sm-4">600kr / Referee</div>
+</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">Women All + Preeseason</div>
+    <div class="col-sm-4 border-dark border-right">400kr / Referee</div>
+    <div class="col-sm-4">600kr / Referee</div>
+</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">Travel Fee</div>
+    <div class="col-sm-4 border-dark border-right">Car: 3kr / km</div>
+    <div class="col-sm-4">Commuting: Receipt !</div>
+</div>
+<div class="row col-sm-12 border-dark table-bordered">
+    <div class="col-sm-4 border-dark border-right">Late game start</div>
+    <div class="col-sm-4 border-dark border-right">Vardagar efter 20.30, Lördag, Söndagar, helgdagar efter 18.00</div>
+    <div class="col-sm-4">120kr / Referee</div>
+</div>
+@*_______________________________________________________________________________________________________________*@
+<div class="row col-sm-12 border-dark table-bordered">
+    Inställd match/WO, samma dag, resan ska ha på börjats, hela resan ska ersättas samt halva arvodet per domare. Utbetalning för hela ersättningen ansvara hemmalaget för som sedan får reglera detta med borta laget.
+    Vid påbörjad match som blir avbruten ska hela arvodet inklusive resa samt eventuellt sen matchstart utbetalas.
+    Om inget annat är överenskommet ska båda lagen dela på arvodet med 50/50.
+</div>
+<dl class="row col-sm-12 text-body border-dark table-bordered">
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.GameTotalKost)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.GameTotalKost)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.ReceiptStatus)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.ReceiptStatus.ReceiptStatusName)</dd>
+</dl>
+<div>
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="ListVetsGameReceipts">Back to Vets Receipts</a>
+</div>

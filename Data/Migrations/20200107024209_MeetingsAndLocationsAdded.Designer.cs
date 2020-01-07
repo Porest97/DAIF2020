@@ -4,14 +4,16 @@ using DAIF2020.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAIF2020.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200107024209_MeetingsAndLocationsAdded")]
+    partial class MeetingsAndLocationsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -869,9 +871,6 @@ namespace DAIF2020.Data.Migrations
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MeetingId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
@@ -883,8 +882,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasIndex("ActivityStatusId");
 
                     b.HasIndex("GameId");
-
-                    b.HasIndex("MeetingId");
 
                     b.HasIndex("PersonId");
 
@@ -1845,10 +1842,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.DataModels.Game", "Game")
                         .WithMany()
                         .HasForeignKey("GameId");
-
-                    b.HasOne("DAIF2020.Planner.Models.DataModels.Meeting", "Meeting")
-                        .WithMany()
-                        .HasForeignKey("MeetingId");
 
                     b.HasOne("DAIF2020.Models.DataModels.Person", "Person")
                         .WithMany()

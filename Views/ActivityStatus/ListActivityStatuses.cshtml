@@ -1,0 +1,37 @@
+﻿@model DAIF2020.Models.ViewModels.SettingsViewModel
+@{
+    ViewData["Title"] = "ListActivityStatuses";
+}
+
+<h1>Activity Statuses</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="ActivityStatus" asp-action="Create">Create new status</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityStatuses[0].ActivityStatusName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ActivityStatuses.OrderBy(a => a.ActivityStatusName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityStatusName)
+                </td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="ActivityStatus" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="ActivityStatus" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="ActivityStatus" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,69 @@
+﻿@model DAIF2020.Planner.Models.ViewModels.ActivitiesViewModel
+@{
+    ViewData["Title"] = "ListActivitiesDone";
+}
+
+<h1>Activities - Done</h1>
+
+
+<a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Create">Create new activity</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Planner">Back to Planner</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].FromDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].ToDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].Person.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].Game.GameCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].Game.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities[0].ActivityStatus)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Activities.OrderBy(a => a.FromDateTime))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.GameCategory.GameCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.Arena.ArenaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityStatus.ActivityStatusName)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Activities" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-controller="Activities" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@

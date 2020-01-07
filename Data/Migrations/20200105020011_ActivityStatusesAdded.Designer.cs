@@ -4,14 +4,16 @@ using DAIF2020.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAIF2020.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200105020011_ActivityStatusesAdded")]
+    partial class ActivityStatusesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -848,102 +850,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Zone");
-                });
-
-            modelBuilder.Entity("DAIF2020.Planner.Models.DataModels.Activity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ActivityName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ActivityStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FromDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MeetingId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ToDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActivityStatusId");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("MeetingId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Activity");
-                });
-
-            modelBuilder.Entity("DAIF2020.Planner.Models.DataModels.Location", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LocationName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZipCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("DAIF2020.Planner.Models.DataModels.Meeting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MeetingDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MeetingName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Meeting");
                 });
 
             modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.TSMGame", b =>
@@ -1834,36 +1740,6 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.SettingModels.Zone", "Zone2")
                         .WithMany()
                         .HasForeignKey("ZoneId1");
-                });
-
-            modelBuilder.Entity("DAIF2020.Planner.Models.DataModels.Activity", b =>
-                {
-                    b.HasOne("DAIF2020.Models.SettingModels.ActivityStatus", "ActivityStatus")
-                        .WithMany()
-                        .HasForeignKey("ActivityStatusId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameId");
-
-                    b.HasOne("DAIF2020.Planner.Models.DataModels.Meeting", "Meeting")
-                        .WithMany()
-                        .HasForeignKey("MeetingId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-                });
-
-            modelBuilder.Entity("DAIF2020.Planner.Models.DataModels.Meeting", b =>
-                {
-                    b.HasOne("DAIF2020.Planner.Models.DataModels.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
-
-                    b.HasOne("DAIF2020.Models.DataModels.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
                 });
 
             modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.TSMGame", b =>

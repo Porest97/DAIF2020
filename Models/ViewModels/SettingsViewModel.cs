@@ -37,5 +37,7 @@ namespace DAIF2020.Models.ViewModels
         public List<SeriesStatus> SeriesStatuses { get; internal set; }
 
         public List<TournamentType> TournamentTypes { get; internal set; }
+
+        public List<ActivityStatus> ActivityStatuses { get; internal set; }
     }
 }
