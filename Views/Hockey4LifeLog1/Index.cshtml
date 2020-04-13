@@ -28,6 +28,9 @@
                 @Html.DisplayNameFor(model => model.Hours)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.NumberOfGames)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Game1)
             </th>
             <th>
@@ -58,13 +61,16 @@
                 @Html.DisplayFor(modelItem => item.Hours)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Game1.GameNumber)
+                @Html.DisplayFor(modelItem => item.NumberOfGames)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Game2.GameNumber)
+                @Html.DisplayFor(modelItem => item.Game1.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Game3.GameNumber)
+                @Html.DisplayFor(modelItem => item.Game2.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game3.Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

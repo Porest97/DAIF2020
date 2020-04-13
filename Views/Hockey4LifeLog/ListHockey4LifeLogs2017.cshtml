@@ -1,0 +1,59 @@
+﻿@model DAIF2020.Models.ViewModels.Hockey4LifeLogsViewModel
+@{
+    ViewData["Title"] = "ListHockey4LifeLogs2017";
+}
+
+<h1>Hockey4LifeLogs 2017</h1>
+<div class="badge text-md-center">
+    <h2>Hours: @Model.Hockey4LifeLogs.Sum(h => h.Hours)</h2>
+    <h2>Games: @Model.Hockey4LifeLogs.Sum(h => h.NumberOfGames)</h2>
+    <a class="btn btn-sm btn-success" asp-controller="Hockey4LifeLog" asp-action="Create">Create new Log</a>
+    <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Hockey4Life">Back to Hockey4Life</a>
+</div>
+<div class="badge text-md-center">
+    <table class="table table-responsive-sm table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Id)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Date)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Events)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].HockeyDay)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].DayInLife)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Hours)</th>
+                <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].NumberOfGames)</th>
+                @*<th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Hockey4LifeLogs[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.ArchivedGames[0].Id)</th>
+                        <th>@Html.DisplayNameFor(model => model.ArchivedGames[0].Id)</th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Hockey4LifeLogs.OrderBy(h => h.Date))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Events)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HockeyDay)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DayInLife)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Hours)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NumberOfGames)</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Id)</td>*@
+                    <td>
+                        <a class="btn btn-sm btn-success" asp-controller="Hockey4LifeLog" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-success" asp-controller="Hockey4LifeLog" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-controller="Hockey4LifeLog" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@

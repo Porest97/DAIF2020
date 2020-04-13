@@ -1,18 +1,17 @@
 ﻿@model DAIF2020.Models.DataModels.Hockey4LifeLog
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
 <h4>Hockey4LifeLog</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
@@ -45,18 +44,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="GameId" class="control-label"></label>
-                <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
+                <select asp-for="GameId" class ="form-control" asp-items="ViewBag.GameId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="GameId1" class="control-label"></label>
-                <select asp-for="GameId1" class="form-control" asp-items="ViewBag.GameId1"></select>
+                <select asp-for="GameId1" class ="form-control" asp-items="ViewBag.GameId1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="GameId2" class="control-label"></label>
-                <select asp-for="GameId2" class="form-control" asp-items="ViewBag.GameId2"></select>
+                <select asp-for="GameId2" class ="form-control" asp-items="ViewBag.GameId2"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

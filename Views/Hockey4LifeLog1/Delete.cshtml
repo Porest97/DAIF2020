@@ -11,54 +11,60 @@
     <h4>Hockey4LifeLog</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Date)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Date)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Events)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Events)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.HockeyDay)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.HockeyDay)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DayInLife)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DayInLife)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Hours)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Hours)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfGames)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfGames)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Game1)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game1.GameNumber)
-        </dd>
-        <dt class="col-sm-2">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game1.Id)
+        </dd class>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Game2)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game2.GameNumber)
-        </dd>
-        <dt class="col-sm-2">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game2.Id)
+        </dd class>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Game3)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game3.GameNumber)
-        </dd>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game3.Id)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">

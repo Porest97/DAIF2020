@@ -43,6 +43,18 @@
                 <span asp-validation-for="NumberOfGames" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="GameId" class="control-label"></label>
+                <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId1" class="control-label"></label>
+                <select asp-for="GameId1" class="form-control" asp-items="ViewBag.GameId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId2" class="control-label"></label>
+                <select asp-for="GameId2" class="form-control" asp-items="ViewBag.GameId2"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
