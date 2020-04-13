@@ -1,0 +1,66 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.PZGameReceipt
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PZGameReceipt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PZGameId" class="control-label"></label>
+                <select asp-for="PZGameId" class="form-control" asp-items="ViewBag.PZGameId"></select>
+                <span asp-validation-for="PZGameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptCategoryId" class="control-label"></label>
+                <select asp-for="ReceiptCategoryId" class="form-control" asp-items="ViewBag.ReceiptCategoryId"></select>
+                <span asp-validation-for="ReceiptCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptStatusId" class="control-label"></label>
+                <select asp-for="ReceiptStatusId" class="form-control" asp-items="ViewBag.ReceiptStatusId"></select>
+                <span asp-validation-for="ReceiptStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptTypeId" class="control-label"></label>
+                <select asp-for="ReceiptTypeId" class="form-control" asp-items="ViewBag.ReceiptTypeId"></select>
+                <span asp-validation-for="ReceiptTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ1Fee" class="control-label"></label>
+                <input asp-for="UDZ1Fee" class="form-control" />
+                <span asp-validation-for="UDZ1Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ2Fee" class="control-label"></label>
+                <input asp-for="UDZ2Fee" class="form-control" />
+                <span asp-validation-for="UDZ2Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ3Fee" class="control-label"></label>
+                <input asp-for="UDZ3Fee" class="form-control" />
+                <span asp-validation-for="UDZ3Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UDZ4Fee" class="control-label"></label>
+                <input asp-for="UDZ4Fee" class="form-control" />
+                <span asp-validation-for="UDZ4Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -29,6 +29,7 @@ namespace DAIF2020.Controllers
                 .Include(g => g.GameCategory)
                 .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -42,10 +43,12 @@ namespace DAIF2020.Controllers
             var gamesViewModel = new GamesViewModel()
             {
                 Games = _context.Game
-                .Include(g => g.Arena)
+                 .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
-                .Include(g => g.GameCategory)                
+                .Include(g => g.GameCategory)
+                .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -64,8 +67,10 @@ namespace DAIF2020.Controllers
                 Games = _context.Game
                 .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
-                .Include(g => g.GameCategory)                
+                .Include(g => g.GameCategory)
+                .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -84,8 +89,10 @@ namespace DAIF2020.Controllers
                 Games = _context.Game
                 .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
-                .Include(g => g.GameCategory)                
+                .Include(g => g.GameCategory)
+                .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -106,7 +113,9 @@ namespace DAIF2020.Controllers
                 .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
                 .Include(g => g.GameCategory)
+                .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -127,7 +136,9 @@ namespace DAIF2020.Controllers
                 .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
                 .Include(g => g.GameCategory)
-                .Include(g => g.GameStatus)                
+                .Include(g => g.GameStatus)
+                .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -148,11 +159,12 @@ namespace DAIF2020.Controllers
             }
 
             var game = await _context.Game
-                .Include(g => g.Arena)
+               .Include(g => g.Arena)
                 .Include(g => g.AwayTeam)
                 .Include(g => g.GameCategory)
                 .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)
@@ -175,6 +187,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName");
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName");
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName");
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName");
@@ -188,7 +201,7 @@ namespace DAIF2020.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
+        public async Task<IActionResult> Create([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -201,6 +214,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", game.GameCategoryId);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", game.GameStatusId);
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", game.GameTypeId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", game.SeriesId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId1);
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", game.ClubId);
@@ -217,6 +231,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName");
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName");
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName");
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName");
@@ -230,7 +245,7 @@ namespace DAIF2020.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateCupGame([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
+        public async Task<IActionResult> CreateCupGame([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -243,6 +258,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", game.GameCategoryId);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", game.GameStatusId);
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", game.GameTypeId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", game.SeriesId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId1);
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", game.ClubId);
@@ -270,6 +286,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", game.GameCategoryId);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", game.GameStatusId);
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", game.GameTypeId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", game.SeriesId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId1);
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", game.ClubId);
@@ -283,7 +300,7 @@ namespace DAIF2020.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3")] Game game)
         {
             if (id != game.Id)
             {
@@ -315,6 +332,7 @@ namespace DAIF2020.Controllers
             ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", game.GameCategoryId);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", game.GameStatusId);
             ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", game.GameTypeId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", game.SeriesId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", game.PersonId1);
             ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", game.ClubId);
@@ -337,6 +355,7 @@ namespace DAIF2020.Controllers
                 .Include(g => g.GameCategory)
                 .Include(g => g.GameStatus)
                 .Include(g => g.GameType)
+                .Include(g => g.Series)
                 .Include(g => g.HD1)
                 .Include(g => g.HD2)
                 .Include(g => g.HomeTeam)

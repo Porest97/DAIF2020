@@ -1,0 +1,66 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.PZGameReceipt
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PZGameReceipt</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PZGame)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PZGame.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiptCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReceiptCategory.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiptStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReceiptStatus.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiptType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReceiptType.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UDZ1Fee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UDZ1Fee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UDZ2Fee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UDZ2Fee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UDZ3Fee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UDZ3Fee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UDZ4Fee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UDZ4Fee)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

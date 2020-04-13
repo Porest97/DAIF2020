@@ -39,7 +39,7 @@
                 <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
                 <span asp-validation-for="GameId" class="text-danger"></span>
             </div>
-            <h1>--------HD1--------</h1>            
+            <h1>--------HD1--------</h1>
             <div class="form-group">
                 <label asp-for="HD1Fee" class="control-label"></label>
                 <input asp-for="HD1Fee" class="form-control" />
@@ -199,6 +199,11 @@
                 <label asp-for="TotalAmountToPay" class="control-label"></label>
                 <input asp-for="TotalAmountToPay" class="form-control" />
                 <span asp-validation-for="TotalAmountToPay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HalfTotalAmountToPay" class="control-label"></label>
+                <input asp-for="HalfTotalAmountToPay" class="form-control" />
+                <span asp-validation-for="HalfTotalAmountToPay" class="text-danger"></span>
             </div>
             <h1>------------------</h1>
             <div class="form-group">

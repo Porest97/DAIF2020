@@ -1,0 +1,116 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.PZGame
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PZGame</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PZGameName" class="control-label"></label>
+                <input asp-for="PZGameName" class="form-control" />
+                <span asp-validation-for="PZGameName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameCategoryId" class="control-label"></label>
+                <select asp-for="GameCategoryId" class="form-control" asp-items="ViewBag.GameCategoryId"></select>
+                <span asp-validation-for="GameCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameStatusId" class="control-label"></label>
+                <select asp-for="GameStatusId" class="form-control" asp-items="ViewBag.GameStatusId"></select>
+                <span asp-validation-for="GameStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameTypeId" class="control-label"></label>
+                <select asp-for="GameTypeId" class="form-control" asp-items="ViewBag.GameTypeId"></select>
+                <span asp-validation-for="GameTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId" class="control-label"></label>
+                <select asp-for="ZoneGameId" class="form-control" asp-items="ViewBag.ZoneGameId"></select>
+                <span asp-validation-for="ZoneGameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId1" class="control-label"></label>
+                <select asp-for="ZoneGameId1" class="form-control" asp-items="ViewBag.ZoneGameId1"></select>
+                <span asp-validation-for="ZoneGameId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId2" class="control-label"></label>
+                <select asp-for="ZoneGameId2" class="form-control" asp-items="ViewBag.ZoneGameId2"></select>
+                <span asp-validation-for="ZoneGameId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId3" class="control-label"></label>
+                <select asp-for="ZoneGameId3" class="form-control" asp-items="ViewBag.ZoneGameId3"></select>
+                <span asp-validation-for="ZoneGameId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId4" class="control-label"></label>
+                <select asp-for="ZoneGameId4" class="form-control" asp-items="ViewBag.ZoneGameId4"></select>
+                <span asp-validation-for="ZoneGameId4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId5" class="control-label"></label>
+                <select asp-for="ZoneGameId5" class="form-control" asp-items="ViewBag.ZoneGameId5"></select>
+                <span asp-validation-for="ZoneGameId5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId6" class="control-label"></label>
+                <select asp-for="ZoneGameId6" class="form-control" asp-items="ViewBag.ZoneGameId6"></select>
+                <span asp-validation-for="ZoneGameId6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId7" class="control-label"></label>
+                <select asp-for="ZoneGameId7" class="form-control" asp-items="ViewBag.ZoneGameId7"></select>
+                <span asp-validation-for="ZoneGameId7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId8" class="control-label"></label>
+                <select asp-for="ZoneGameId8" class="form-control" asp-items="ViewBag.ZoneGameId8"></select>
+                <span asp-validation-for="ZoneGameId8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId9" class="control-label"></label>
+                <select asp-for="ZoneGameId9" class="form-control" asp-items="ViewBag.ZoneGameId9"></select>
+                <span asp-validation-for="ZoneGameId9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId10" class="control-label"></label>
+                <select asp-for="ZoneGameId10" class="form-control" asp-items="ViewBag.ZoneGameId10"></select>
+                <span asp-validation-for="ZoneGameId10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneGameId11" class="control-label"></label>
+                <select asp-for="ZoneGameId11" class="form-control" asp-items="ViewBag.ZoneGameId11"></select>
+                <span asp-validation-for="ZoneGameId11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubId" class="control-label"></label>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
+                <span asp-validation-for="ClubId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenaId" class="control-label"></label>
+                <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
+                <span asp-validation-for="ArenaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

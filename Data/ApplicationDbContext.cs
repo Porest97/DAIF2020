@@ -8,6 +8,8 @@ using DAIF2020.Models.SettingModels;
 using DAIF2020.TheLab.Models.DataModels;
 using DAIF2020.TSM.Models.DataModels;
 using DAIF2020.Planner.Models.DataModels;
+using DAIF2020.CleverServiceIX.DataModels;
+using DAIF2020.SRHLStats2020.Models.DataModels;
 
 namespace DAIF2020.Data
 {
@@ -53,5 +55,14 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.Planner.Models.DataModels.Activity> Activity { get; set; }
         public DbSet<DAIF2020.Planner.Models.DataModels.Meeting> Meeting { get; set; }
         public DbSet<DAIF2020.Planner.Models.DataModels.Location> Location { get; set; }
+        public DbSet<DAIF2020.TSM.Models.DataModels.Game20192020> Game20192020 { get; set; }
+        public DbSet<DAIF2020.CleverServiceIX.DataModels.PZGame> PZGame { get; set; }
+        public DbSet<DAIF2020.CleverServiceIX.DataModels.PZGameReceipt> PZGameReceipt { get; set; }
+        public DbSet<DAIF2020.CleverServiceIX.DataModels.RefFees> RefFees { get; set; }
+        public DbSet<DAIF2020.CleverServiceIX.DataModels.CSMatch> CSMatch { get; set; }
+        public DbSet<DAIF2020.SRHLStats2020.Models.DataModels.Match> Match { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.ArchivedGame> ArchivedGame { get; set; }
+        public DbSet<DAIF2020.Models.DataModels.Hockey4LifeLog> Hockey4LifeLog { get; set; }
+
     }
 }

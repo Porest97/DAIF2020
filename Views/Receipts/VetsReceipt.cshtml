@@ -88,20 +88,20 @@
     </div>
 </div>
 @*_______________________________________________________________________________________________________________*@
-<div class="row col-sm-12 border-dark table-bordered">Travel fee: @Html.DisplayFor(model => model.Game.HD1.FullName)</div>
+<div class="row col-sm-12 border-dark table-bordered">Payment To: @Html.DisplayFor(model => model.Game.HD1.FullName)</div>
 
 <div class="row col-sm-12 border-dark table-bordered">
-    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.HD1.Address)</div>
-    <div class="col-sm-4 border-dark border-right">To: @Html.DisplayFor(model => model.Game.Arena.Address)</div>
-    <div class="col-sm-4">Distance in km: 185 </div>
+    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.HomeTeam.ClubName)</div>
+    <div class="col-sm-4 border-dark border-right">Ammount: @Html.DisplayFor(model => model.HalfTotalAmountToPay)</div>
+    <div class="col-sm-4">To Swish Number: @Html.DisplayFor(model => model.Game.HD1.SwishNumber)</div>
 </div>
 @*_______________________________________________________________________________________________________________*@
-<div class="row col-sm-12 border-dark table-bordered">Travel fee: @Html.DisplayFor(model => model.Game.HD2.FullName)</div>
+<div class="row col-sm-12 border-dark table-bordered">Payment To: @Html.DisplayFor(model => model.Game.HD2.FullName)</div>
 
 <div class="row col-sm-12 border-dark table-bordered">
-    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.HD2.Address)</div>
-    <div class="col-sm-4 border-dark border-right">To: @Html.DisplayFor(model => model.Game.Arena.Address)</div>
-    <div class="col-sm-4">Distance in km: </div>
+    <div class="col-sm-4 border-dark border-right">From: @Html.DisplayFor(model => model.Game.AwayTeam.ClubName)</div>
+    <div class="col-sm-4 border-dark border-right">Ammount: @Html.DisplayFor(model => model.HalfTotalAmountToPay)</div>
+    <div class="col-sm-4">To Swish Number: @Html.DisplayFor(model => model.Game.HD2.SwishNumber)</div>
 </div>
 @*_______________________________________________________________________________________________________________*@
 <div class="row col-sm-12 border-dark table-bordered">Fees season 2019/2020</div>
@@ -145,6 +145,8 @@
 <dl class="row col-sm-12 text-body border-dark table-bordered">
     <dt class="col-sm-2">@Html.DisplayNameFor(model => model.GameTotalKost)</dt>
     <dd class="col-sm-10">@Html.DisplayFor(model => model.GameTotalKost)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.HalfTotalAmountToPay)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.HalfTotalAmountToPay)</dd>
     <dt class="col-sm-2">@Html.DisplayNameFor(model => model.ReceiptStatus)</dt>
     <dd class="col-sm-10">@Html.DisplayFor(model => model.ReceiptStatus.ReceiptStatusName)</dd>
 </dl>

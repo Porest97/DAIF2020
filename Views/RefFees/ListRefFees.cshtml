@@ -1,0 +1,56 @@
+﻿@model DAIF2020.CleverServiceIX.ViewModels.RefFeesViewModel
+@{
+    ViewData["Title"] = "ListRefFees";
+}
+
+<h1>RefFees</h1>
+<a class="btn btn-sm btn-success" asp-controller="RefFees" asp-action="Create">Create new Ref Fee</a>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="CleverServiceIX">Back to CleverServiceIX</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RefFees[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefFees[0].UDZ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefFees[0].HD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefFees[0].LD)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RefFees.OrderBy(rf => rf.Category))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UDZ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LD)
+                </td>                
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="RefFees" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-success" asp-controller="RefFees" asp-action="Details" asp-route-id="@item.Id">Details</a>                    
+                    <a class="btn btn-sm btn-danger" asp-controller="RefFees" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@**@<h3>Work notes !</h3>
+<textarea id="TextArea1" rows="20" cols="150"></textarea>
+

@@ -60,7 +60,7 @@ namespace DAIF2020.TheLab.Models.DataModels
         [Display(Name = "Total")]
         [DataType(DataType.Currency)]
         public int HD1TotalFee { get; set; } = 0;
-
+               
         //HD2
         [Display(Name = "FEE")]
         [DataType(DataType.Currency)]
@@ -151,6 +151,9 @@ namespace DAIF2020.TheLab.Models.DataModels
         [DataType(DataType.Currency)]
         public int TotalAmountToPay { get; set; }
 
-        
+        [Display(Name = " 50 / 50 ")]
+        [DataType(DataType.Currency)]
+        public int HalfTotalAmountToPay { get; set; }
+
     }
 }

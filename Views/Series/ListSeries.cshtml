@@ -1,0 +1,54 @@
+﻿@model DAIF2020.Models.ViewModels.SeriesViewModel
+@{
+    ViewData["Title"] = "ListSeries";
+}
+
+<h1>Series</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Series" asp-action="Create">Create new Series</a>
+
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].Admin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].SeriesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series[0].SeriesStatus)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Series.OrderBy(s => s.SeriesName))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin.District.DistrictName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesStatus.SeriesStatusName)
+            </td>
+
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="Series" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Series" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Series" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

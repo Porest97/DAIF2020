@@ -1,0 +1,137 @@
+﻿@model IEnumerable<DAIF2020.CleverServiceIX.DataModels.PZGame>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PZGameName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZoneGame12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostingClub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PZGameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameCategory.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameType.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame1.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame2.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame3.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame4.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame5.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame6.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame7.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame8.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame9.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame10.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame11.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZoneGame12.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HostingClub.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

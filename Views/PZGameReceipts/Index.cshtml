@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DAIF2020.CleverServiceIX.DataModels.PZGameReceipt>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PZGame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ1Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ2Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ3Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UDZ4Fee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PZGame.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptCategory.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptType.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ1Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ2Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ3Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UDZ4Fee)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

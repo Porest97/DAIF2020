@@ -1,0 +1,126 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.PZGame
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PZGame</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PZGameName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PZGameName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameCategory.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameStatus.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameType.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame1.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame2.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame3.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame4.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame5.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame6.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame7.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame8.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame9.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame10.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame11.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame12)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame12.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HostingClub)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HostingClub.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arena.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

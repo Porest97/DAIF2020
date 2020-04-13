@@ -13,16 +13,20 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h1>----------------</h1>
-            <div class="form-group"><label asp-for="ReceiptCategory" class="control-label"></label>
+            <div class="form-group">
+                <label asp-for="ReceiptCategory" class="control-label"></label>
                 <select asp-for="ReceiptCategoryId" class="form-control" asp-items="ViewBag.ReceiptCategoryId"></select>
             </div>
-            <div class="form-group"><label asp-for="ReceiptStatus" class="control-label"></label>
+            <div class="form-group">
+                <label asp-for="ReceiptStatus" class="control-label"></label>
                 <select asp-for="ReceiptStatusId" class="form-control" asp-items="ViewBag.ReceiptStatusId"></select>
             </div>
-            <div class="form-group"><label asp-for="ReceiptType" class="control-label"></label>
+            <div class="form-group">
+                <label asp-for="ReceiptType" class="control-label"></label>
                 <select asp-for="ReceiptTypeId" class="form-control" asp-items="ViewBag.ReceiptTypeId"></select>
             </div>
-            <div class="form-group"><label asp-for="Game" class="control-label"></label>
+            <div class="form-group">
+                <label asp-for="Game" class="control-label"></label>
                 <select asp-for="GameId" class="form-control" asp-items="ViewBag.GameId"></select>
             </div>
             <h1>----------------</h1>
@@ -191,8 +195,14 @@
                 <input asp-for="TotalAmountToPay" class="form-control" />
                 <span asp-validation-for="TotalAmountToPay" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="HalfTotalAmountToPay" class="control-label"></label>
+                <input asp-for="HalfTotalAmountToPay" class="form-control" />
+                <span asp-validation-for="HalfTotalAmountToPay" class="text-danger"></span>
+            </div>
             <h1>----------------</h1>
-            <div class="form-group"><input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
             </div>
         </form>
     </div>

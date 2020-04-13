@@ -10,6 +10,7 @@
 <table class="table table-responsive-sm table-striped">
     <thead>
         <tr>
+            <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameName)</th>
             <th>@Html.DisplayNameFor(model => model.ZoneGames[0].ZoneGameDateTime)</th>
             <th>@Html.DisplayNameFor(model => model.ZoneGames[0].Arena)</th>
             <th>@Html.DisplayNameFor(model => model.ZoneGames[0].TSMNumbers)</th>
@@ -23,6 +24,7 @@
         @foreach (var item in Model.ZoneGames.OrderBy(g => g.ZoneGameDateTime))
         {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.ZoneGameName)</td>
             <td>@Html.DisplayFor(modelItem => item.ZoneGameDateTime)</td>
             <td>@Html.DisplayFor(modelItem => item.Arena.ArenaName)</td>
             <td>@Html.DisplayFor(modelItem => item.TSMNumbers)</td>

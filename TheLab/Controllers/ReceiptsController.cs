@@ -144,6 +144,50 @@ namespace DAIF2020.TheLab.Controllers
             return View(receiptsViewModel);
         }
 
+        //Lists Receipts with status DueToPayHAHC !
+        public IActionResult ListReceiptsDueToPayHAHC()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 6).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
+        //Lists Receipts with status DueToPayAIK !
+        public IActionResult ListReceiptsDueToPayAIK()
+        {
+            var receiptsViewModel = new ReceiptsViewModel()
+            {
+                Receipts = _context.Receipt
+                .Include(r => r.Game)
+                .Include(r => r.Game.HD1)
+                .Include(r => r.Game.HD2)
+                .Include(r => r.Game.LD1)
+                .Include(r => r.Game.LD2)
+                .Include(r => r.Game.HomeTeam)
+                .Include(r => r.Game.AwayTeam)
+                .Include(r => r.Game.Arena)
+                .Include(r => r.Game.GameCategory)
+                .Include(r => r.ReceiptCategory)
+                .Include(r => r.ReceiptStatus)
+                .Include(r => r.ReceiptType).Where(r => r.ReceiptStatusId == 7).ToList()
+            };
+            return View(receiptsViewModel);
+        }
+
         //Lists Receipts with status Paid !
         public IActionResult ListReceiptsPaid()
         {
@@ -296,7 +340,7 @@ namespace DAIF2020.TheLab.Controllers
                 receipt.LD1TotalFee = receipt.LD1Fee + receipt.LD1TravelKost + receipt.LD1Alowens + receipt.LD1LateGameKost + receipt.LD1Other;
                 receipt.LD2TotalFee = receipt.LD2Fee + receipt.LD2TravelKost + receipt.LD2Alowens + receipt.LD2LateGameKost + receipt.LD2Other;
                 receipt.GameTotalKost = receipt.HD1TotalFee + receipt.HD2TotalFee + receipt.LD1TotalFee + receipt.LD2TotalFee;
-
+                receipt.HalfTotalAmountToPay = receipt.GameTotalKost / 2;
                 _context.Add(receipt);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(ListReceipts));
@@ -362,7 +406,7 @@ namespace DAIF2020.TheLab.Controllers
                     receipt.LD1TotalFee = receipt.LD1Fee + receipt.LD1TravelKost + receipt.LD1Alowens + receipt.LD1LateGameKost + receipt.LD1Other;
                     receipt.LD2TotalFee = receipt.LD2Fee + receipt.LD2TravelKost + receipt.LD2Alowens + receipt.LD2LateGameKost + receipt.LD2Other;
                     receipt.GameTotalKost = receipt.HD1TotalFee + receipt.HD2TotalFee + receipt.LD1TotalFee + receipt.LD2TotalFee;
-
+                    receipt.HalfTotalAmountToPay = receipt.GameTotalKost / 2;
                     _context.Update(receipt);
                     await _context.SaveChangesAsync();
                 }

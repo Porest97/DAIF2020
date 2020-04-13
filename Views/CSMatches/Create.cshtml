@@ -1,0 +1,81 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.CSMatch
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CSMatch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateTimeMatch" class="control-label"></label>
+                <input asp-for="DateTimeMatch" class="form-control" />
+                <span asp-validation-for="DateTimeMatch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TSMNumber" class="control-label"></label>
+                <input asp-for="TSMNumber" class="form-control" />
+                <span asp-validation-for="TSMNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenaId" class="control-label"></label>
+                <select asp-for="ArenaId" class ="form-control" asp-items="ViewBag.ArenaId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamId" class="control-label"></label>
+                <select asp-for="TeamId" class ="form-control" asp-items="ViewBag.TeamId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamId1" class="control-label"></label>
+                <select asp-for="TeamId1" class ="form-control" asp-items="ViewBag.TeamId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeamScore" class="control-label"></label>
+                <input asp-for="HomeTeamScore" class="form-control" />
+                <span asp-validation-for="HomeTeamScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeamScore" class="control-label"></label>
+                <input asp-for="AwayTeamScore" class="form-control" />
+                <span asp-validation-for="AwayTeamScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CSMatchStatusId" class="control-label"></label>
+                <select asp-for="CSMatchStatusId" class ="form-control" asp-items="ViewBag.CSMatchStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentStatusId" class="control-label"></label>
+                <select asp-for="PaymentStatusId" class ="form-control" asp-items="ViewBag.PaymentStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId1" class="control-label"></label>
+                <select asp-for="PersonId1" class ="form-control" asp-items="ViewBag.PersonId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId2" class="control-label"></label>
+                <select asp-for="PersonId2" class ="form-control" asp-items="ViewBag.PersonId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId3" class="control-label"></label>
+                <select asp-for="PersonId3" class ="form-control" asp-items="ViewBag.PersonId3"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

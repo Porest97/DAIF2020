@@ -28,28 +28,32 @@
                 <span asp-validation-for="TSMNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="SeriesId" class="control-label"></label>
+                <select asp-for="SeriesId" class="form-control" asp-items="ViewBag.SeriesId"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="GameCategoryId" class="control-label"></label>
-                <select asp-for="GameCategoryId" class ="form-control" asp-items="ViewBag.GameCategoryId"></select>
+                <select asp-for="GameCategoryId" class="form-control" asp-items="ViewBag.GameCategoryId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="GameStatusId" class="control-label"></label>
-                <select asp-for="GameStatusId" class ="form-control" asp-items="ViewBag.GameStatusId"></select>
+                <select asp-for="GameStatusId" class="form-control" asp-items="ViewBag.GameStatusId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="GameTypeId" class="control-label"></label>
-                <select asp-for="GameTypeId" class ="form-control" asp-items="ViewBag.GameTypeId"></select>
+                <select asp-for="GameTypeId" class="form-control" asp-items="ViewBag.GameTypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ArenaId" class="control-label"></label>
-                <select asp-for="ArenaId" class ="form-control" asp-items="ViewBag.ArenaId"></select>
+                <select asp-for="ArenaId" class="form-control" asp-items="ViewBag.ArenaId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ClubId" class="control-label"></label>
-                <select asp-for="ClubId" class ="form-control" asp-items="ViewBag.ClubId"></select>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ClubId1" class="control-label"></label>
-                <select asp-for="ClubId1" class ="form-control" asp-items="ViewBag.ClubId1"></select>
+                <select asp-for="ClubId1" class="form-control" asp-items="ViewBag.ClubId1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="HomeTeamScore" class="control-label"></label>
@@ -63,19 +67,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="PersonId" class="control-label"></label>
-                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PersonId1" class="control-label"></label>
-                <select asp-for="PersonId1" class ="form-control" asp-items="ViewBag.PersonId1"></select>
+                <select asp-for="PersonId1" class="form-control" asp-items="ViewBag.PersonId1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PersonId2" class="control-label"></label>
-                <select asp-for="PersonId2" class ="form-control" asp-items="ViewBag.PersonId2"></select>
+                <select asp-for="PersonId2" class="form-control" asp-items="ViewBag.PersonId2"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PersonId3" class="control-label"></label>
-                <select asp-for="PersonId3" class ="form-control" asp-items="ViewBag.PersonId3"></select>
+                <select asp-for="PersonId3" class="form-control" asp-items="ViewBag.PersonId3"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-sm btn-primary" />

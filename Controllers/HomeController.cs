@@ -83,7 +83,22 @@ namespace DAIF2020.Controllers
             return View();
         }
 
+        public IActionResult CleverServiceIX()
+        {
+            return View();
+        }
+
+        public IActionResult SRHLStats2020()
+        {
+            return View();
+        }
+
         public IActionResult Links()
+        {
+            return View();
+        }
+
+        public IActionResult Hockey4Life()
         {
             return View();
         }

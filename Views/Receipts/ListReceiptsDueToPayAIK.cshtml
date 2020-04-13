@@ -1,0 +1,80 @@
+﻿@model DAIF2020.TheLab.Models.VeiwModels.ReceiptsViewModel
+@{
+    ViewData["Title"] = "ListReceiptsDueToPayAIK";
+}
+
+    <h1>Receipts - Due To Pay AIK</h1>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2"><p>Total:</p></div>
+    <div class="col-sm-2">@Model.Receipts.Sum(r => r.GameTotalKost)</div>
+</div>
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Economics">To Economics</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceipts">To Receipts Created</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsPaid">To Receipts Paid</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsArchived">To Receipts Archived</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsDueToPay">To Receipts Due To Pay</a>
+<a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="ListReceiptsDueToPayHAHC">To Receipts Due To Pay Haninge Anchors HC</a>
+<table class="table table-responsive-sm table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameCategory)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.GameDateTime)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.Arena)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HomeTeam)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.AwayTeam)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD1)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].HD1TotalFee)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.HD2)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].HD2TotalFee)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD1)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].LD1TotalFee)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].Game.LD2)</th>
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].LD2TotalFee)</th>
+            @*____________________________________________________________________*@
+            <th>@Html.DisplayNameFor(model => model.Receipts[0].GameTotalKost)</th>
+            @*____________________________________________________________________*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Receipts.OrderBy(r => r.Game.GameDateTime))
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Game.GameCategory.GameCategoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Game.GameDateTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.Game.Arena.ArenaName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Game.HomeTeam.ClubName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Game.AwayTeam.ClubName)</td>
+                @*____________________________________________________________________*@
+                <td>@Html.DisplayFor(modelItem => item.Game.HD1.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.HD1TotalFee)</td>
+                @*____________________________________________________________________*@
+                <td>@Html.DisplayFor(modelItem => item.Game.HD2.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.HD2TotalFee)</td>
+                @*____________________________________________________________________*@
+                <td>@Html.DisplayFor(modelItem => item.Game.LD1.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LD1TotalFee)</td>
+                @*____________________________________________________________________*@
+                <td>@Html.DisplayFor(modelItem => item.Game.LD2.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LD2TotalFee)</td>
+                @*____________________________________________________________________*@
+                <td>@Html.DisplayFor(modelItem => item.GameTotalKost)</td>
+                @*____________________________________________________________________*@
+                <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Receipts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-sm btn-outline-success" asp-controller="Receipts" asp-action="Receipt" asp-route-id="@item.Id">Receipt</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@

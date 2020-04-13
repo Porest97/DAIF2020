@@ -19,6 +19,332 @@ namespace DAIF2020.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.CSMatch", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AwayTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CSMatchStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateTimeMatch")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("HomeTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId3")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TSMNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TeamId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("CSMatchStatusId");
+
+                    b.HasIndex("PaymentStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("CSMatch");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.PZGame", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ClubId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PZGameName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ZoneGameId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId10")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId11")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId6")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId7")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId8")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZoneGameId9")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("ClubId");
+
+                    b.HasIndex("GameCategoryId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("GameTypeId");
+
+                    b.HasIndex("ZoneGameId");
+
+                    b.HasIndex("ZoneGameId1");
+
+                    b.HasIndex("ZoneGameId10");
+
+                    b.HasIndex("ZoneGameId11");
+
+                    b.HasIndex("ZoneGameId2");
+
+                    b.HasIndex("ZoneGameId3");
+
+                    b.HasIndex("ZoneGameId4");
+
+                    b.HasIndex("ZoneGameId5");
+
+                    b.HasIndex("ZoneGameId6");
+
+                    b.HasIndex("ZoneGameId7");
+
+                    b.HasIndex("ZoneGameId8");
+
+                    b.HasIndex("ZoneGameId9");
+
+                    b.ToTable("PZGame");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.PZGameReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("PZGameId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReceiptTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("UDZ1Fee")
+                        .HasColumnType("float");
+
+                    b.Property<double>("UDZ2Fee")
+                        .HasColumnType("float");
+
+                    b.Property<double>("UDZ3Fee")
+                        .HasColumnType("float");
+
+                    b.Property<double>("UDZ4Fee")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PZGameId");
+
+                    b.HasIndex("ReceiptCategoryId");
+
+                    b.HasIndex("ReceiptStatusId");
+
+                    b.HasIndex("ReceiptTypeId");
+
+                    b.ToTable("PZGameReceipt");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.PaymentStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("PaymentStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentStatus");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.RefFees", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("HD")
+                        .HasColumnType("float");
+
+                    b.Property<double>("LD")
+                        .HasColumnType("float");
+
+                    b.Property<double>("UDZ")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefFees");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.SCMatchStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CSMatchStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SCMatchStatus");
+                });
+
+            modelBuilder.Entity("DAIF2020.Models.DataModels.ArchivedGame", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Arena")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GameCetegory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GameNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GameStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GameType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ParticipatedTime")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Score")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("ArchivedGame");
+                });
+
             modelBuilder.Entity("DAIF2020.Models.DataModels.Arena", b =>
                 {
                     b.Property<int>("Id")
@@ -171,6 +497,9 @@ namespace DAIF2020.Data.Migrations
                     b.Property<int?>("PersonId3")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SeriesId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TSMNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -196,7 +525,39 @@ namespace DAIF2020.Data.Migrations
 
                     b.HasIndex("PersonId3");
 
+                    b.HasIndex("SeriesId");
+
                     b.ToTable("Game");
+                });
+
+            modelBuilder.Entity("DAIF2020.Models.DataModels.Hockey4LifeLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DayInLife")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Events")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HockeyDay")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Hours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("NumberOfGames")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hockey4LifeLog");
                 });
 
             modelBuilder.Entity("DAIF2020.Models.DataModels.Person", b =>
@@ -946,6 +1307,204 @@ namespace DAIF2020.Data.Migrations
                     b.ToTable("Meeting");
                 });
 
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.Lag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LagNamn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Lag");
+                });
+
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.Match", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AwayTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HomeTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LagId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LagId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MatchCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("MatchDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MatchNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MatchStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MatchTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SeriesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TSMNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("LagId");
+
+                    b.HasIndex("LagId1");
+
+                    b.HasIndex("MatchCategoryId");
+
+                    b.HasIndex("MatchStatusId");
+
+                    b.HasIndex("MatchTypeId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("SeriesId");
+
+                    b.ToTable("Match");
+                });
+
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.MatchCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MatchCategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MatchCategory");
+                });
+
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.MatchStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MatchStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MatchStatus");
+                });
+
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.MatchType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MatchTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MatchType");
+                });
+
+            modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.Game20192020", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Arena")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GameDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GameLength")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GameNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Round")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Series")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TSMGameStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WeekDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TSMGameStatusId");
+
+                    b.ToTable("Game20192020");
+                });
+
             modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.TSMGame", b =>
                 {
                     b.Property<int>("Id")
@@ -1165,6 +1724,9 @@ namespace DAIF2020.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("HD2TravelKost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HalfTotalAmountToPay")
                         .HasColumnType("int");
 
                     b.Property<int>("LD1Alowens")
@@ -1542,6 +2104,142 @@ namespace DAIF2020.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.CSMatch", b =>
+                {
+                    b.HasOne("DAIF2020.Models.DataModels.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("DAIF2020.CleverServiceIX.DataModels.SCMatchStatus", "SCMatchStatus")
+                        .WithMany()
+                        .HasForeignKey("CSMatchStatusId");
+
+                    b.HasOne("DAIF2020.CleverServiceIX.DataModels.PaymentStatus", "PaymentStatus")
+                        .WithMany()
+                        .HasForeignKey("PaymentStatusId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "HD1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "HD2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "LD1")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "LD2")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.PZGame", b =>
+                {
+                    b.HasOne("DAIF2020.Models.DataModels.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Club", "HostingClub")
+                        .WithMany()
+                        .HasForeignKey("ClubId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.GameCategory", "GameCategory")
+                        .WithMany()
+                        .HasForeignKey("GameCategoryId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.GameType", "GameType")
+                        .WithMany()
+                        .HasForeignKey("GameTypeId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame1")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame2")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId1");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame11")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId10");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame12")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId11");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame3")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId2");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame4")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId3");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame5")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId4");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame6")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId5");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame7")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId6");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame8")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId7");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame9")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId8");
+
+                    b.HasOne("DAIF2020.Models.DataModels.ZoneGame", "ZoneGame10")
+                        .WithMany()
+                        .HasForeignKey("ZoneGameId9");
+                });
+
+            modelBuilder.Entity("DAIF2020.CleverServiceIX.DataModels.PZGameReceipt", b =>
+                {
+                    b.HasOne("DAIF2020.CleverServiceIX.DataModels.PZGame", "PZGame")
+                        .WithMany()
+                        .HasForeignKey("PZGameId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptCategory", "ReceiptCategory")
+                        .WithMany()
+                        .HasForeignKey("ReceiptCategoryId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptStatus", "ReceiptStatus")
+                        .WithMany()
+                        .HasForeignKey("ReceiptStatusId");
+
+                    b.HasOne("DAIF2020.Models.SettingModels.ReceiptType", "ReceiptType")
+                        .WithMany()
+                        .HasForeignKey("ReceiptTypeId");
+                });
+
+            modelBuilder.Entity("DAIF2020.Models.DataModels.ArchivedGame", b =>
+                {
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+                });
+
             modelBuilder.Entity("DAIF2020.Models.DataModels.Arena", b =>
                 {
                     b.HasOne("DAIF2020.Models.SettingModels.ArenaStatus", "ArenaStatus")
@@ -1609,6 +2307,10 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.DataModels.Person", "LD2")
                         .WithMany()
                         .HasForeignKey("PersonId3");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
                 });
 
             modelBuilder.Entity("DAIF2020.Models.DataModels.Person", b =>
@@ -1864,6 +2566,60 @@ namespace DAIF2020.Data.Migrations
                     b.HasOne("DAIF2020.Models.DataModels.Person", "Person")
                         .WithMany()
                         .HasForeignKey("PersonId");
+                });
+
+            modelBuilder.Entity("DAIF2020.SRHLStats2020.Models.DataModels.Match", b =>
+                {
+                    b.HasOne("DAIF2020.Models.DataModels.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("DAIF2020.SRHLStats2020.Models.DataModels.Lag", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("LagId");
+
+                    b.HasOne("DAIF2020.SRHLStats2020.Models.DataModels.Lag", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("LagId1");
+
+                    b.HasOne("DAIF2020.SRHLStats2020.Models.DataModels.MatchCategory", "MatchCategory")
+                        .WithMany()
+                        .HasForeignKey("MatchCategoryId");
+
+                    b.HasOne("DAIF2020.SRHLStats2020.Models.DataModels.MatchStatus", "MatchStatus")
+                        .WithMany()
+                        .HasForeignKey("MatchStatusId");
+
+                    b.HasOne("DAIF2020.SRHLStats2020.Models.DataModels.MatchType", "MatchType")
+                        .WithMany()
+                        .HasForeignKey("MatchTypeId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "HD1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "HD2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "LD1")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Person", "LD2")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("DAIF2020.Models.DataModels.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+                });
+
+            modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.Game20192020", b =>
+                {
+                    b.HasOne("DAIF2020.TSM.Models.DataModels.TSMGameStatus", "TSMGameStatus")
+                        .WithMany()
+                        .HasForeignKey("TSMGameStatusId");
                 });
 
             modelBuilder.Entity("DAIF2020.TSM.Models.DataModels.TSMGame", b =>

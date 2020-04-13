@@ -49,7 +49,7 @@ namespace DAIF2020.TheLab.Controllers
                 .Include(z => z.ZoneGame.HomeTeam2)
                 .Include(z => z.ZoneGame.AwayTeam1)
                 .Include(z => z.ZoneGame.AwayTeam2)
-                .Include(z => z.ZoneGame.GameCategory)
+                .Include(z => z.ZoneGame.GameCategory).Where(zgr => zgr.ReceiptStatusId <2)
                 .ToList()
             };
             return View(zoneGameReceiptsViewModel);

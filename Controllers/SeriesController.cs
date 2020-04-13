@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
+using DAIF2020.Models.ViewModels;
 
 namespace DAIF2020.Controllers
 {
@@ -27,6 +28,19 @@ namespace DAIF2020.Controllers
                 .Include(s => s.District)
                 .Include(s => s.SeriesStatus);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        public IActionResult ListSeries()
+        {
+            var seriesViewModel = new SeriesViewModel()
+            {
+                Series = _context.Series
+                .Include(s => s.Admin)
+                .Include(s => s.District)
+                .Include(s => s.SeriesStatus)
+                .ToList()
+            };
+            return View(seriesViewModel);
         }
 
         // GET: Series/Details/5
@@ -53,9 +67,9 @@ namespace DAIF2020.Controllers
         // GET: Series/Create
         public IActionResult Create()
         {
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "Id");
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id");
-            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "Id");
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName");
+            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "SeriesStatusName");
             return View();
         }
 
@@ -70,11 +84,11 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(series);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListSeries));
             }
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "Id", series.PersonId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", series.DistrictId);
-            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "Id", series.SeriesStatusId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", series.PersonId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", series.DistrictId);
+            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "SeriesStatusName", series.SeriesStatusId);
             return View(series);
         }
 
@@ -91,9 +105,9 @@ namespace DAIF2020.Controllers
             {
                 return NotFound();
             }
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "Id", series.PersonId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", series.DistrictId);
-            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "Id", series.SeriesStatusId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", series.PersonId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", series.DistrictId);
+            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "SeriesStatusName", series.SeriesStatusId);
             return View(series);
         }
 
@@ -127,11 +141,11 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListSeries));
             }
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "Id", series.PersonId);
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "Id", series.DistrictId);
-            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "Id", series.SeriesStatusId);
+            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", series.PersonId);
+            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", series.DistrictId);
+            ViewData["SeriesStatusId"] = new SelectList(_context.SeriesStatus, "Id", "SeriesStatusName", series.SeriesStatusId);
             return View(series);
         }
 
@@ -164,7 +178,7 @@ namespace DAIF2020.Controllers
             var series = await _context.Series.FindAsync(id);
             _context.Series.Remove(series);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListSeries));
         }
 
         private bool SeriesExists(int id)

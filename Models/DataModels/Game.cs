@@ -14,6 +14,7 @@ namespace DAIF2020.Models.DataModels
         
         //Game DateTime Prop !
         [Display(Name = "Date&Time")]
+        [DisplayFormat(DataFormatString = "{0:ddd yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime GameDateTime { get; set; }
 
         // Game Identification Prop!
@@ -42,6 +43,12 @@ namespace DAIF2020.Models.DataModels
         [Display(Name = "GameType")]
         [ForeignKey("GameTypeId")]
         public GameType GameType { get; set; }
+
+        [Display(Name = "Series")]
+        public int? SeriesId { get; set; }
+        [Display(Name = "Series")]
+        [ForeignKey("SeriesId")]
+        public Series Series { get; set; }
 
         // Game location prop !
         [Display(Name = "Arena")]

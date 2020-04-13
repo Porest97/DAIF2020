@@ -1,0 +1,129 @@
+﻿@model DAIF2020.CleverServiceIX.DataModels.PZGame
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PZGame</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PZGameName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PZGameName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameCategory.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameStatus.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GameType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameType.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame1.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame2.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame3.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame4.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame5.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame6.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame7.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame8.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame9.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame10.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame11.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ZoneGame12)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZoneGame12.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HostingClub)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HostingClub.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arena.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
