@@ -10,6 +10,7 @@ using DAIF2020.TSM.Models.DataModels;
 using DAIF2020.Planner.Models.DataModels;
 using DAIF2020.CleverServiceIX.DataModels;
 using DAIF2020.SRHLStats2020.Models.DataModels;
+using DAIF2020.SportsLogs.Models.DataModels;
 
 namespace DAIF2020.Data
 {
@@ -63,6 +64,8 @@ namespace DAIF2020.Data
         public DbSet<DAIF2020.SRHLStats2020.Models.DataModels.Match> Match { get; set; }
         public DbSet<DAIF2020.Models.DataModels.ArchivedGame> ArchivedGame { get; set; }
         public DbSet<DAIF2020.Models.DataModels.Hockey4LifeLog> Hockey4LifeLog { get; set; }
+        public DbSet<DAIF2020.SportsLogs.Models.DataModels.Sport> Sport { get; set; }
+        public DbSet<DAIF2020.SportsLogs.Models.DataModels.SportsLog> SportsLog { get; set; }
 
     }
 }

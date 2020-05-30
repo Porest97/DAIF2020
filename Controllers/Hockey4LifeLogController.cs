@@ -211,7 +211,7 @@ namespace DAIF2020.Controllers
             {
                 _context.Add(hockey4LifeLog);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ListHockey4LifeLogs));
+                return RedirectToAction(nameof(ListHockey4LifeLogs2020));
             }
             ViewData["GameId"] = new SelectList(_context.Game, "Id", "GameNumber", hockey4LifeLog.GameId);
             ViewData["GameId1"] = new SelectList(_context.Game, "Id", "GameNumber", hockey4LifeLog.GameId1);
@@ -268,7 +268,7 @@ namespace DAIF2020.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ListHockey4LifeLogs));
+                return RedirectToAction(nameof(ListHockey4LifeLogs2020));
             }
             ViewData["GameId"] = new SelectList(_context.Game, "Id", "GameNumber", hockey4LifeLog.GameId);
             ViewData["GameId1"] = new SelectList(_context.Game, "Id", "GameNumber", hockey4LifeLog.GameId1);
@@ -302,7 +302,7 @@ namespace DAIF2020.Controllers
             var hockey4LifeLog = await _context.Hockey4LifeLog.FindAsync(id);
             _context.Hockey4LifeLog.Remove(hockey4LifeLog);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ListHockey4LifeLogs));
+            return RedirectToAction(nameof(ListHockey4LifeLogs2020));
         }
 
         private bool Hockey4LifeLogExists(int id)
