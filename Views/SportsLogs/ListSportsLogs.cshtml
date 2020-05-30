@@ -1,0 +1,49 @@
+﻿@model DAIF2020.SportsLogs.Models.ViewModels.SPLViewModel
+@{
+    ViewData["Title"] = "ListSportsLogs";
+}
+
+<h1>Sport Logs (ALL)</h1>
+<div class="badge text-md-center">
+    <h2>Hours: @Model.SportLogs.Sum(spl => spl.TimeSpent)</h2>  
+</div>
+
+<div class="badge text-md-center">
+    <a class="btn btn-sm btn-success" asp-controller="SportsLogs" asp-action="Create">Create new SPLog</a>
+    <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Games">Back to Games</a>
+</div>
+<div class="badge text-md-center">
+    <table class="table table-responsive-sm table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].Id)</th>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].Person)</th>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].Sport)</th>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].DateTimeStart)</th>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].DateTimeEnd)</th>
+                <th>@Html.DisplayNameFor(model => model.SportLogs[0].TimeSpent)</th>                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SportLogs.OrderBy(g => g.DateTimeStart))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Person.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Sport.SportName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateTimeStart)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateTimeEnd)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TimeSpent)</td>                    
+                    <td>
+                        <a class="btn btn-sm btn-success" asp-controller="SportsLogs" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-success" asp-controller="SportsLogs" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-controller="SportsLogs" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@*<h3>Work notes !</h3>
+    <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
