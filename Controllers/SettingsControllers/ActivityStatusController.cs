@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.Data;
 using DAIF2020.Models.SettingModels;
 using DAIF2020.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DAIF2020.Controllers.SettingsControllers
 {
+    [Authorize]
     public class ActivityStatusController : Controller
     {
         private readonly ApplicationDbContext _context;

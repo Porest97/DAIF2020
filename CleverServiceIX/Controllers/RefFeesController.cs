@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using DAIF2020.CleverServiceIX.DataModels;
 using DAIF2020.Data;
 using DAIF2020.CleverServiceIX.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DAIF2020.CleverServiceIX.Controllers
 {
+    [Authorize]
     public class RefFeesController : Controller
     {
         private readonly ApplicationDbContext _context;

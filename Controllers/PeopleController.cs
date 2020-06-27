@@ -9,9 +9,11 @@ using DAIF2020.Data;
 using DAIF2020.Models.DataModels;
 using DAIF2020.Models.SettingModels;
 using DAIF2020.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DAIF2020.Controllers
 {
+    [Authorize]
     public class PeopleController : Controller
     {
         private readonly ApplicationDbContext _context;
